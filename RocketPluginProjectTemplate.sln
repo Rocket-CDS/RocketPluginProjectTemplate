@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketPluginProjectTemplate", "RocketPluginProjectTemplate.csproj", "{2D122856-D9E8-48C0-BE74-DAD6EC624430}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNNrocketAPI", "..\..\DNNrocket\API\DNNrocketAPI.csproj", "{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Simplisity", "..\..\DNNrocket\Simplisity\Simplisity.csproj", "{11F37DE1-DDAF-47A2-A283-B4556BEFAB57}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketPortal", "..\..\DNNrocket\RocketPortal\RocketPortal.csproj", "{B5A1183F-A999-4D30-8554-FB096347E9E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Comp All|Any CPU = Comp All|Any CPU
+		CompAll|Any CPU = CompAll|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Razor|Any CPU = Razor|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D122856-D9E8-48C0-BE74-DAD6EC624430}.Comp All|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D122856-D9E8-48C0-BE74-DAD6EC624430}.Comp All|Any CPU.Build.0 = Debug|Any CPU
+		{2D122856-D9E8-48C0-BE74-DAD6EC624430}.CompAll|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D122856-D9E8-48C0-BE74-DAD6EC624430}.CompAll|Any CPU.Build.0 = Debug|Any CPU
+		{2D122856-D9E8-48C0-BE74-DAD6EC624430}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D122856-D9E8-48C0-BE74-DAD6EC624430}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D122856-D9E8-48C0-BE74-DAD6EC624430}.Razor|Any CPU.ActiveCfg = Release|Any CPU
+		{2D122856-D9E8-48C0-BE74-DAD6EC624430}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D122856-D9E8-48C0-BE74-DAD6EC624430}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Comp All|Any CPU.ActiveCfg = Comp All|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Comp All|Any CPU.Build.0 = Comp All|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.CompAll|Any CPU.ActiveCfg = CompAll|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.CompAll|Any CPU.Build.0 = CompAll|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Razor|Any CPU.ActiveCfg = Razor|Any CPU
+		{2200F6C3-7D4B-4CDF-908F-DCA37ADFB121}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F37DE1-DDAF-47A2-A283-B4556BEFAB57}.Comp All|Any CPU.ActiveCfg = Comp All|Any CPU
+		{11F37DE1-DDAF-47A2-A283-B4556BEFAB57}.Comp All|Any CPU.Build.0 = Comp All|Any CPU
+		{11F37DE1-DDAF-47A2-A283-B4556BEFAB57}.CompAll|Any CPU.ActiveCfg = CompAll|Any CPU
+		{11F37DE1-DDAF-47A2-A283-B4556BEFAB57}.CompAll|Any CPU.Build.0 = CompAll|Any CPU
+		{11F37DE1-DDAF-47A2-A283-B4556BEFAB57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F37DE1-DDAF-47A2-A283-B4556BEFAB57}.Razor|Any CPU.ActiveCfg = Razor|Any CPU
+		{11F37DE1-DDAF-47A2-A283-B4556BEFAB57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A1183F-A999-4D30-8554-FB096347E9E8}.Comp All|Any CPU.ActiveCfg = Comp All|Any CPU
+		{B5A1183F-A999-4D30-8554-FB096347E9E8}.Comp All|Any CPU.Build.0 = Comp All|Any CPU
+		{B5A1183F-A999-4D30-8554-FB096347E9E8}.CompAll|Any CPU.ActiveCfg = CompAll|Any CPU
+		{B5A1183F-A999-4D30-8554-FB096347E9E8}.CompAll|Any CPU.Build.0 = CompAll|Any CPU
+		{B5A1183F-A999-4D30-8554-FB096347E9E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5A1183F-A999-4D30-8554-FB096347E9E8}.Razor|Any CPU.ActiveCfg = Release|Any CPU
+		{B5A1183F-A999-4D30-8554-FB096347E9E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A157A3B-DFCF-46E5-B011-001576DCF9D5}
+	EndGlobalSection
+EndGlobal

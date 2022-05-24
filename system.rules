@@ -1,0 +1,44 @@
+  <genxml>
+    <systemkey>RocketSystemProjectTemplate</systemkey>
+
+    <groupsdata list="true">
+    </groupsdata>
+
+    <provtypesdata list="true">
+    </provtypesdata>
+
+    <providerdata list="true">
+    </providerdata>
+
+    <interfacedata list="true">
+
+      <genxml>
+        <textbox>
+          <interfacekey>rocketpluginprojecttemplate</interfacekey>
+          <namespaceclass>RocketPluginProjectTemplate.API.StartConnect</namespaceclass>
+          <assembly>RocketPluginProjectTemplate</assembly>
+          <interfaceicon></interfaceicon>
+          <defaultcommand>rocketpluginprojecttemplate_test</defaultcommand>
+          <relpath>/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate</relpath>
+        </textbox>
+        <providertype></providertype>
+        <dropdownlist>
+          <group></group>
+        </dropdownlist>
+        <checkbox>
+          <onmenu>true</onmenu>
+          <active>true</active>
+        </checkbox>
+        <radio>
+          <securityrolesadministrators>1</securityrolesadministrators>
+          <securityrolesmanager>1</securityrolesmanager>
+          <securityroleseditor>1</securityroleseditor>
+          <securityrolesclienteditor>1</securityrolesclienteditor>
+          <securityrolesregisteredusers>0</securityrolesregisteredusers>
+          <securityrolessubscribers>0</securityrolessubscribers>
+          <securityrolesall>0</securityrolesall>
+        </radio>
+      </genxml>
+
+    </interfacedata>
+  </genxml>

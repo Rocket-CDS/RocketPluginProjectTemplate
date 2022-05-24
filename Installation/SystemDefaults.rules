@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<root>
+
+  <commands>
+
+    <command>
+      <cmd>rocketpluginprojecttemplate_test</cmd>
+      <action>true</action>
+    </command>
+
+  </commands>
+  
+</root>

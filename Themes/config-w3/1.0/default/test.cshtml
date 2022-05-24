@@ -1,0 +1,20 @@
+@inherits RocketPluginProjectTemplate.Components.RocketPluginProjectTemplateTokens<Simplisity.SimplisityRazor>
+@using DNNrocketAPI;
+@using System
+@using System.Linq
+@using System.Xml
+@using Simplisity;
+@using DNNrocketAPI.Components;
+@using RocketPortal.Components;
+
+@{
+    var portalData = (PortalLimpet)Model.List.First();
+}
+
+
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocket/API/App_LocalResources/")
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate/App_LocalResources/")
+
+@RenderLanguageSelector("rocketpluginprojecttemplate_test", "", "rocketsystemprojecttemplate", Model)
+
+<h1>TEST</h1>

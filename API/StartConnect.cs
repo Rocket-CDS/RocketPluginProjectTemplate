@@ -9,16 +9,16 @@ namespace RocketPluginProjectTemplate.API
 {
     public partial class StartConnect : DNNrocketAPI.APInterface
     {
-        private SimplisityInfo? _postInfo;
-        private SimplisityInfo? _paramInfo;
-        private RocketInterface? _rocketInterface;
-        private Dictionary<string, string>? _passSettings;
-        private SystemLimpet? _systemData;
-        private SessionParams? _sessionParams;
-        private AppThemeSystemLimpet? _appThemeSystem;
-        private AppThemeSystemLimpet? _appThemePlugin;
-        private PortalLimpet? _portalData;
-        private Dictionary<string, object>? _dataObjects;
+        private SimplisityInfo _postInfo;
+        private SimplisityInfo _paramInfo;
+        private RocketInterface _rocketInterface;
+        private Dictionary<string, string> _passSettings;
+        private SystemLimpet _systemData;
+        private SessionParams _sessionParams;
+        private AppThemeSystemLimpet _appThemeSystem;
+        private AppThemeSystemLimpet _appThemePlugin;
+        private PortalLimpet _portalData;
+        private Dictionary<string, object> _dataObjects;
 
         public override Dictionary<string, object> ProcessCommand(string paramCmd, SimplisityInfo systemInfo, SimplisityInfo interfaceInfo, SimplisityInfo postInfo, SimplisityInfo paramInfo, string langRequired = "")
         {

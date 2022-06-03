@@ -17,6 +17,7 @@ namespace RocketPluginProjectTemplate.API
         private SessionParams _sessionParams;
         private AppThemeSystemLimpet _appThemeSystem;
         private AppThemeSystemLimpet _appThemePlugin;
+        private AppThemeDNNrocketLimpet _appThemePortal;
         private PortalLimpet _portalData;
         private Dictionary<string, object> _dataObjects;
 
@@ -34,6 +35,9 @@ namespace RocketPluginProjectTemplate.API
                 case "rocketpluginprojecttemplate_test":
                     strOut = RenderTest();
                     break;
+                case "rocketplugin_login":
+                    strOut = ReloadPage();
+                    break;
             }
 
             if (!rtnDic.ContainsKey("outputjson")) rtnDic.Add("outputhtml", strOut);
@@ -43,6 +47,14 @@ namespace RocketPluginProjectTemplate.API
         private string RenderTest()
         {
             var razorTempl = _appThemePlugin.GetTemplate("test.cshtml");
+            var pr = RenderRazorUtils.RazorProcessData(razorTempl, _portalData, _dataObjects, _passSettings, _sessionParams, true);
+            if (pr.StatusCode != "00") return pr.ErrorMsg;
+            return pr.RenderedText;
+        }
+        private string ReloadPage()
+        {
+            UserUtils.SignOut();
+            var razorTempl = _appThemePortal.GetTemplate("Reload.cshtml");
             var pr = RenderRazorUtils.RazorProcessData(razorTempl, _portalData, _dataObjects, _passSettings, _sessionParams, true);
             if (pr.StatusCode != "00") return pr.ErrorMsg;
             return pr.RenderedText;
@@ -58,6 +70,7 @@ namespace RocketPluginProjectTemplate.API
             _rocketInterface = new RocketInterface(interfaceInfo);
             _sessionParams = new SessionParams(_paramInfo);
             _passSettings = new Dictionary<string, string>();
+            _appThemePortal = new AppThemeDNNrocketLimpet("rocketportal");
 
             // Assign Langauge
             DNNrocketUtils.SetCurrentCulture();
@@ -72,6 +85,7 @@ namespace RocketPluginProjectTemplate.API
 
             _dataObjects = new Dictionary<string, object>();
             _dataObjects.Add("appthemesystem", _appThemeSystem);
+            _dataObjects.Add("appthemeportal", _appThemePortal);
             _dataObjects.Add("appthemeplugin", _appThemePlugin);
             _dataObjects.Add("portaldata", _portalData);
             _dataObjects.Add("securitydata", securityData);
@@ -84,7 +98,7 @@ namespace RocketPluginProjectTemplate.API
             }
             else
             {
-                paramCmd = securityData.HasSecurityAccess(paramCmd, "rocketsystem_login");
+                paramCmd = securityData.HasSecurityAccess(paramCmd, "rocketplugin_login");
             }
 
             return paramCmd;

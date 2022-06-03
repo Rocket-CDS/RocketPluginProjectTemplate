@@ -61,5 +61,5 @@ To load the interfaces from the "system.rules":
 
 1. Edit the "/DesktopModules/DNNRocketModules/\<project name>/system.rules" system interface file.
 2. Create a Folder in "/DesktopModules/DNNRocketModules/\<project name>/Plugins/\<plugin name new folder>" and place the "system.rules" file it the new folder.
-3. Reintsall the plugin through the DNN insterface.
+3. Reinstall the plugin through the DNN UI.
 

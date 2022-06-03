@@ -57,9 +57,9 @@ NOTE: "ArticleLimpet" and "ArticleListLimpet" are examples and are expected to b
 
 Extra plugin interfaces or changes to the plugin interfaces, in the "system.rules" file, will NOT be updated in the system until the new interfaces have been loaded.  
 
-To load the interfaces the "system.rules":  
+To load the interfaces from the "system.rules":  
 
-1. Edit the "/DesktopModules/DNNRocketModules/\<project name>/system.rules" file.
+1. Edit the "/DesktopModules/DNNRocketModules/\<project name>/system.rules" system interface file.
 2. Create a Folder in "/DesktopModules/DNNRocketModules/\<project name>/Plugins/\<plugin name new folder>" and place the "system.rules" file it the new folder.
 3. Reintsall the plugin through the DNN insterface.
 

@@ -45,9 +45,12 @@ The project template uses an example a class limpet call "ArticleLimpet" and "Ar
 
 The database table column "TYPECODE" should usually be unique for the plugin, the template therefore appends the plugin name to the default TYPECODE name.
 
-The plugin template expects to be using the system database tables, no database tables or SPROCs have been defined.  Although each plugin can have their own set of tables and SPROCs is required.  
+The plugin template expects to be using the system database tables, no database tables or SPROCs have been defined.  Although each plugin can have their own set of tables and SPROCs if required.  
 
 NOTE: "ArticleLimpet" and "ArticleListLimpet" are examples and are expected to be replaced or altered to make the plugin work.
 
+## Commands
+
+**Any cammons need to be defined in the "SystemDefaults.rules" file.**
 
 

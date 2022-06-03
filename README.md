@@ -12,7 +12,7 @@ RocketCDS plugins are always attached to a system and must have a unique name.
 
 
 ## Creating a new Project
-Copy the template to you working environment. This is usually "/DesktopModules/DNNrocketModules/\<new plugin project>"
+Copy the template to your working environment. This is usually "/DesktopModules/DNNrocketModules/\<new plugin project>"
 
 Rename the project folder to be the new project plugin name, if not already done.
 

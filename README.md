@@ -51,6 +51,6 @@ NOTE: "ArticleLimpet" and "ArticleListLimpet" are examples and are expected to b
 
 ## Commands
 
-**Any cammons need to be defined in the "SystemDefaults.rules" file.**
+**Any commands need to be defined in the "SystemDefaults.rules" file.**
 
 

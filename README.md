@@ -34,7 +34,7 @@ Rename DNN manifest.
 
 Ensure all projects in the solution are loaded. The project uses project references and expects the source code, but you can also add a reference to the assemblies. External assemblies are usually added to a "_external" folder underneath the project root.
 
-This project should be able to be compiled.
+This project should now compile.
 
 ## Database Changes
 

@@ -12,6 +12,9 @@ RocketCDS plugins are always attached to a system and must have a unique name.
 
 
 ## Creating a new Project
+
+**NOTE: Do NOT use an underscore ( _ ) in the new project name.  The underscore is used as a delimiter in RocketCDS.**
+
 Copy the template to your working environment. This is usually "/DesktopModules/DNNrocketModules/\<new plugin project>"
 
 Rename the project folder to be the new project plugin name, if not already done.

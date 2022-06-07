@@ -19,7 +19,7 @@ namespace RocketPluginProjectTemplate.Components
         private string _langRequired;
         private List<ArticleLimpet> _articleList;
         private const string _tableName = "DNNrocket";
-        private const string _entityTypeCode = "RocketERMStrainART";
+        private const string _entityTypeCode = "RocketPluginProjectTemplateART";
         private DNNrocketController _objCtrl;
         private string _searchFilter;
 
@@ -49,7 +49,7 @@ namespace RocketPluginProjectTemplate.Components
             if (SessionParamData.PageSize == 0) SessionParamData.PageSize = 32;
             if (SessionParamData.OrderByRef == "") SessionParamData.OrderByRef = "sqlorderby-article-name";
 
-            SessionParamData.SearchText = paramInfo.GetXmlProperty("genxml/hidden/searchtextrocketermstrain");
+            SessionParamData.SearchText = paramInfo.GetXmlProperty("genxml/hidden/searchtextrocketpluginprojecttemplate");
 
             if (populate) Populate();
         }

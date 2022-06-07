@@ -33,19 +33,19 @@ namespace RocketPluginProjectTemplate.API
 
             switch (paramCmd)
             {
-                case "rocketermstrain_list":
+                case "rocketpluginprojecttemplate_list":
                     strOut = RenderList();
                     break;
-                case "rocketermstrain_detail":
+                case "rocketpluginprojecttemplate_detail":
                     strOut = GetDetail(_sessionParams.CultureCodeEdit);
                     break;
-                case "rocketermstrain_add":
+                case "rocketpluginprojecttemplate_add":
                     strOut = AddArticle(_sessionParams.CultureCodeEdit);
                     break;
-                case "rocketermstrain_delete":
+                case "rocketpluginprojecttemplate_delete":
                     strOut = RenderList();
                     break;
-                case "rocketermstrain_save":
+                case "rocketpluginprojecttemplate_save":
                     strOut = SaveArticle(_sessionParams.CultureCodeEdit);
                     break;
                 case "rocketsystem_login":

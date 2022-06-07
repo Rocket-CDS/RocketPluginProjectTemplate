@@ -4,23 +4,23 @@
   <commands>
 
     <command>
-      <cmd>rocketermstrain_list</cmd>
+      <cmd>rocketpluginprojecttemplate_list</cmd>
       <action>true</action>
     </command>
 	  <command>
-		  <cmd>rocketermstrain_add</cmd>
+		  <cmd>rocketpluginprojecttemplate_add</cmd>
 		  <action>true</action>
 	  </command>
 	  <command>
-		  <cmd>rocketermstrain_delete</cmd>
+		  <cmd>rocketpluginprojecttemplate_delete</cmd>
 		  <action>true</action>
 	  </command>
 	  <command>
-		  <cmd>rocketermstrain_save</cmd>
+		  <cmd>rocketpluginprojecttemplate_save</cmd>
 		  <action>true</action>
 	  </command>
 	  <command>
-		  <cmd>rocketermstrain_detail</cmd>
+		  <cmd>rocketpluginprojecttemplate_detail</cmd>
 		  <action>true</action>
 	  </command>
 	  

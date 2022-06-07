@@ -53,6 +53,8 @@ NOTE: "ArticleLimpet" and "ArticleListLimpet" are examples and are expected to b
 
 **Any commands need to be defined in the "SystemDefaults.rules" file.**
 
+**IMPORTANT: Any changes made to the interfaces, "system.rules" file, must be updated in the /DNNrocketmodules/"system name"/Plugins/"Plugin Name"/system.rules**.  This is usually only done on install, so if you change the interface in development, the "system.rules" file will need to be copied to the system plugin folder.
+
 ## Interfaces
 
 Extra plugin interfaces or changes to the plugin interfaces, in the "system.rules" file, will NOT be updated in the system until the new interfaces have been loaded.  

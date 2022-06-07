@@ -1,4 +1,4 @@
-@inherits RocketPluginProjectTemplate.Components.RocketERMStrainTokens<Simplisity.SimplisityRazor>
+@inherits RocketPluginProjectTemplate.Components.RocketPluginProjectTemplateTokens<Simplisity.SimplisityRazor>
 @using DNNrocketAPI;
 @using System
 @using System.Linq
@@ -19,7 +19,7 @@
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocket/API/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate/App_LocalResources/")
 
-@RenderLanguageSelector("rocketermstrain_list", "", appThemeSystem, Model)
+@RenderLanguageSelector("rocketpluginprojecttemplate_list", "", appThemeSystem, Model)
 
 <div class="w3-animate-opacity w3-padding">
 
@@ -31,18 +31,18 @@
             </span>
         </div>
         <div class="w3-bar-item">
-            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketermstrain_add" s-fields='{"articleid":"-1"}'>@ButtonText(ButtonTypes.add)</div>
+            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketpluginprojecttemplate_add" s-fields='{"articleid":"-1"}'>@ButtonText(ButtonTypes.add)</div>
         </div>
 
         <div class="w3-bar-item w3-right w3-hide-small w3-margin-left" style="width: 100px">
-            @DropDownList(new SimplisityInfo(), "genxml/hidden/pagesize", "8,16,32,64,128", "8,16,32,64,128", "class='w3-input w3-border w3-light-grey simplisity_sessionfield simplisity_change ' s-sessionfield='#searchtextrocketermstrain,#pagesize,#page' s-cmd='rocketermstrain_list' s-post='.searchdata'  title='" + @ResourceKey("DNNrocket.pagesize") + "'", "32")
+            @DropDownList(new SimplisityInfo(), "genxml/hidden/pagesize", "8,16,32,64,128", "8,16,32,64,128", "class='w3-input w3-border w3-light-grey simplisity_sessionfield simplisity_change ' s-sessionfield='#searchtextrocketpluginprojecttemplate,#pagesize,#page' s-cmd='rocketpluginprojecttemplate_list' s-post='.searchdata'  title='" + @ResourceKey("DNNrocket.pagesize") + "'", "32")
         </div>
 
         <div class="w3-bar-item w3-right " style=''>
             <div class="w3-bar">
                 <span class="w3-bar-item w3-button clearsearch " style="display:none;" s-fields=''>@ButtonIcon(ButtonTypes.cancel)</span>
-                @TextBox(new SimplisityInfo(), "genxml/textbox/searchtextrocketermstrain", " style='height:40px;' class='w3-bar-item w3-input w3-border w3-light-grey simplisity_sessionfield actionentrykey' autocomplete='off' ")
-                <span class="w3-bar-item w3-button w3-theme simplisity_click dosearch" style="height:40px;" s-sessionfield='#searchtextrocketermstrain,#pagesize,#page' s-cmd="rocketermstrain_list" s-post=".searchdata">@ButtonIcon(ButtonTypes.search)</span>
+                @TextBox(new SimplisityInfo(), "genxml/textbox/searchtextrocketpluginprojecttemplate", " style='height:40px;' class='w3-bar-item w3-input w3-border w3-light-grey simplisity_sessionfield actionentrykey' autocomplete='off' ")
+                <span class="w3-bar-item w3-button w3-theme simplisity_click dosearch" style="height:40px;" s-sessionfield='#searchtextrocketpluginprojecttemplate,#pagesize,#page' s-cmd="rocketpluginprojecttemplate_list" s-post=".searchdata">@ButtonIcon(ButtonTypes.search)</span>
             </div>
         </div>
 
@@ -65,7 +65,7 @@
                     var name = dataInfo.GetXmlProperty("genxml/lang/genxml/textbox/articlename");
                     var test1 = dataInfo.GetXmlProperty("genxml/textbox/test1");
 
-                    <tr class="simplisity_click" s-cmd="rocketermstrain_detail" s-fields='{"articleid":"@dataInfo.ItemID","track":"true"}' style="cursor:pointer;">
+                    <tr class="simplisity_click" s-cmd="rocketpluginprojecttemplate_detail" s-fields='{"articleid":"@dataInfo.ItemID","track":"true"}' style="cursor:pointer;">
                         <td>@articleref</td>
                         <td>@name</td>
                         <td>
@@ -78,7 +78,7 @@
 
         @{
             Model.SetSetting("s-return", "#simplisity_startpanel");
-            Model.SetSetting("s-cmd", "rocketermstrain_list");
+            Model.SetSetting("s-cmd", "rocketpluginprojecttemplate_list");
             Model.SetSetting("s-post", ".searchdata");
         }
         @RenderTemplate("Paging.cshtml", appThemeSystem, Model)
@@ -95,12 +95,12 @@
 
         $('.clearsearch ').unbind("click");
         $('.clearsearch ').click(function () {
-            $('#searchtextrocketermstrain').val('');
+            $('#searchtextrocketpluginprojecttemplate').val('');
             $('.dosearch').trigger('click');
             return false; // prevent the button click from happening
         });
 
-        if ($('#searchtextrocketermstrain').val() !== '') {
+        if ($('#searchtextrocketpluginprojecttemplate').val() !== '') {
             $('.clearsearch').show();
         }
 

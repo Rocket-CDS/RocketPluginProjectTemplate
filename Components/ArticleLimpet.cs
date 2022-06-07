@@ -17,7 +17,7 @@ namespace RocketPluginProjectTemplate.Components
     public class ArticleLimpet
     {
         private const string _tableName = "DNNrocket";
-        private const string _entityTypeCode = "RocketERMStrainART";
+        private const string _entityTypeCode = "RocketPluginProjectTemplateART";
         private DNNrocketController _objCtrl;
         private SimplisityInfo _info;
 

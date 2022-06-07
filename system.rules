@@ -18,7 +18,7 @@
           <namespaceclass>RocketPluginProjectTemplate.API.StartConnect</namespaceclass>
           <assembly>RocketPluginProjectTemplate</assembly>
           <interfaceicon>school</interfaceicon>
-          <defaultcommand>rocketermstrain_list</defaultcommand>
+          <defaultcommand>rocketpluginprojecttemplate_list</defaultcommand>
           <relpath>/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate</relpath>
         </textbox>
         <providertype></providertype>

@@ -9,10 +9,10 @@ using System.Text;
 
 namespace RocketPluginProjectTemplate.Components
 {
-    public class RocketERMStrainTokens<T> : DNNrocketAPI.render.DNNrocketTokens<T>
+    public class RocketPluginProjectTemplateTokens<T> : DNNrocketAPI.render.DNNrocketTokens<T>
     {
 
-        public IEncodedString RocketERMStrainTestToken()
+        public IEncodedString RocketPluginProjectTemplateTestToken()
         {
             return new RawString("TEST TOKEN");
         }

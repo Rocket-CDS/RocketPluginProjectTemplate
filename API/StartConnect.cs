@@ -4,6 +4,7 @@ using Simplisity;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using RocketPluginProjectTemplate.Components;
 
 namespace RocketPluginProjectTemplate.API
 {
@@ -32,10 +33,22 @@ namespace RocketPluginProjectTemplate.API
 
             switch (paramCmd)
             {
-                case "rocketpluginprojecttemplate_test":
-                    strOut = RenderTest();
+                case "rocketermstrain_list":
+                    strOut = RenderList();
                     break;
-                case "rocketplugin_login":
+                case "rocketermstrain_detail":
+                    strOut = GetDetail(_sessionParams.CultureCodeEdit);
+                    break;
+                case "rocketermstrain_add":
+                    strOut = AddArticle(_sessionParams.CultureCodeEdit);
+                    break;
+                case "rocketermstrain_delete":
+                    strOut = RenderList();
+                    break;
+                case "rocketermstrain_save":
+                    strOut = SaveArticle(_sessionParams.CultureCodeEdit);
+                    break;
+                case "rocketsystem_login":
                     strOut = ReloadPage();
                     break;
             }
@@ -44,13 +57,6 @@ namespace RocketPluginProjectTemplate.API
             return rtnDic;
         }
 
-        private string RenderTest()
-        {
-            var razorTempl = _appThemePlugin.GetTemplate("test.cshtml");
-            var pr = RenderRazorUtils.RazorProcessData(razorTempl, _portalData, _dataObjects, _passSettings, _sessionParams, true);
-            if (pr.StatusCode != "00") return pr.ErrorMsg;
-            return pr.RenderedText;
-        }
         private string ReloadPage()
         {
             UserUtils.SignOut();
@@ -98,7 +104,7 @@ namespace RocketPluginProjectTemplate.API
             }
             else
             {
-                paramCmd = securityData.HasSecurityAccess(paramCmd, "rocketplugin_login");
+                paramCmd = securityData.HasSecurityAccess(paramCmd, "rocketsystem_login");
             }
 
             return paramCmd;

@@ -4,10 +4,26 @@
   <commands>
 
     <command>
-      <cmd>rocketpluginprojecttemplate_test</cmd>
+      <cmd>rocketermstrain_list</cmd>
       <action>true</action>
     </command>
-
+	  <command>
+		  <cmd>rocketermstrain_add</cmd>
+		  <action>true</action>
+	  </command>
+	  <command>
+		  <cmd>rocketermstrain_delete</cmd>
+		  <action>true</action>
+	  </command>
+	  <command>
+		  <cmd>rocketermstrain_save</cmd>
+		  <action>true</action>
+	  </command>
+	  <command>
+		  <cmd>rocketermstrain_detail</cmd>
+		  <action>true</action>
+	  </command>
+	  
   </commands>
   
 </root>

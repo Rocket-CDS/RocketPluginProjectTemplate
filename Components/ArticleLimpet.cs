@@ -17,9 +17,8 @@ namespace RocketPluginProjectTemplate.Components
     public class ArticleLimpet
     {
         private const string _tableName = "DNNrocket";
-        private const string _entityTypeCode = "RocketPluginProjectTemplateART";
+        private const string _entityTypeCode = "RocketERMStrainART";
         private DNNrocketController _objCtrl;
-        private int _articleId;
         private SimplisityInfo _info;
 
         /// <summary>
@@ -28,62 +27,59 @@ namespace RocketPluginProjectTemplate.Components
         /// <param name="portalId"></param>
         /// <param name="dataRef"></param>
         /// <param name="langRequired"></param>
-        public ArticleLimpet(int portalId, string dataRef, string langRequired)
+        public ArticleLimpet(int portalId, int articleId, string langRequired)
         {
             PortalId = portalId;
             _info = new SimplisityInfo();
-            _info.ItemID = -1;
+            _info.ItemID = articleId;
             _info.TypeCode = _entityTypeCode;
             _info.ModuleId = -1;
             _info.UserId = -1;
-            _info.GUIDKey = dataRef;
+            _info.GUIDKey = "";
             _info.PortalId = PortalId;
 
-            Populate(langRequired);
+            Populate(articleId, langRequired);
         }
 
-        private void Populate(string cultureCode)
+        private void Populate(int articleId, string cultureCode)
         {
             _objCtrl = new DNNrocketController();
             CultureCode = cultureCode;
 
-            var info = _objCtrl.GetByGuidKey(PortalId, -1, _entityTypeCode, DataRef, "", _tableName, cultureCode);
+            var info = _objCtrl.GetInfo(articleId, cultureCode, _tableName);
             if (info != null && info.ItemID > 0) _info = info; // check if we have a real record, or a dummy being created and not saved yet.
             _info.Lang = CultureCode;
             PortalId = _info.PortalId;
             if (DataRef == "") DataRef = GeneralUtils.GetGuidKey();
-
-            // Add namespace and json convert to lists. (for handlebars)
-            GeneralUtils.AddJsonNetRootAttribute(ref _info);
-
         }
         public void Delete()
         {
             _objCtrl.Delete(_info.ItemID, _tableName);
         }
 
-        private SimplisityInfo ReplaceInfoFields(SimplisityInfo newInfo, SimplisityInfo postInfo, string xpathListSelect)
+        private void ReplaceInfoFields(SimplisityInfo postInfo, string xpathListSelect)
         {
             var textList = postInfo.XMLDoc.SelectNodes(xpathListSelect);
             if (textList != null)
             {
                 foreach (XmlNode nod in textList)
                 {
-                    newInfo.SetXmlProperty(xpathListSelect.Replace("*", "") + nod.Name, nod.InnerText);
+                    _info.SetXmlProperty(xpathListSelect.Replace("*", "") + nod.Name, nod.InnerText);
                 }
             }
-            return newInfo;
+        }
+        public int Save(SimplisityInfo postInfo)
+        {
+            ReplaceInfoFields(postInfo, "genxml/textbox/*");
+            ReplaceInfoFields(postInfo, "genxml/checkbox/*");
+            ReplaceInfoFields(postInfo, "genxml/select/*");
+            ReplaceInfoFields(postInfo, "genxml/lang/genxml/textbox/*");
+            ReplaceInfoFields(postInfo, "genxml/lang/genxml/checkbox/*");
+            ReplaceInfoFields(postInfo, "genxml/lang/genxml/select/*");
+            return Update();
         }
         public int Update()
         {
-            // Add namespace and json convert to lists. (for handlebars)
-            GeneralUtils.AddJsonArrayAttributesForXPath("genxml/rows/genxml/imagelist/genxml", ref _info);
-            GeneralUtils.AddJsonArrayAttributesForXPath("genxml/lang/genxml/rows/genxml/imagelist/genxml", ref _info);
-            GeneralUtils.AddJsonArrayAttributesForXPath("genxml/rows/genxml/documentlist/genxml", ref _info);
-            GeneralUtils.AddJsonArrayAttributesForXPath("genxml/lang/genxml/rows/genxml/documentlist/genxml", ref _info);
-            GeneralUtils.AddJsonArrayAttributesForXPath("genxml/rows/genxml/linklist/genxml", ref _info);
-            GeneralUtils.AddJsonArrayAttributesForXPath("genxml/lang/genxml/rows/genxml/linklist/genxml", ref _info);
-
             _info = _objCtrl.SaveData(_info, _tableName);
             if (_info.GUIDKey == "")
             {

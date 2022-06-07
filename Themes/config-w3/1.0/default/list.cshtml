@@ -1,0 +1,125 @@
+@inherits RocketPluginProjectTemplate.Components.RocketERMStrainTokens<Simplisity.SimplisityRazor>
+@using DNNrocketAPI;
+@using System
+@using System.Linq
+@using System.Xml
+@using Simplisity;
+@using DNNrocketAPI.Components;
+@using RocketPortal.Components;
+@using RocketPluginProjectTemplate.Components;
+
+@{
+    var portalData = (PortalLimpet)Model.List.First();
+    var dataList = (ArticleLimpetList)Model.GetDataObject("datalist");
+    var systemData = (SystemLimpet)Model.GetDataObject("systemdata");
+    var appThemeSystem = (AppThemeSystemLimpet)Model.GetDataObject("appthemesystem");
+}
+
+
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocket/API/App_LocalResources/")
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate/App_LocalResources/")
+
+@RenderLanguageSelector("rocketermstrain_list", "", appThemeSystem, Model)
+
+<div class="w3-animate-opacity w3-padding">
+
+    <div class="w3-bar searchdata">
+        @HiddenField(new SimplisityInfo(), "genxml/hidden/page", " class='simplisity_sessionfield' s-update='ignore'", "1")
+        <div class="w3-bar-item">
+            <span class="material-icons w3-text-teal w3-xxxlarge" title="Server" style="cursor:default;">
+                school
+            </span>
+        </div>
+        <div class="w3-bar-item">
+            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketermstrain_add" s-fields='{"articleid":"-1"}'>@ButtonText(ButtonTypes.add)</div>
+        </div>
+
+        <div class="w3-bar-item w3-right w3-hide-small w3-margin-left" style="width: 100px">
+            @DropDownList(new SimplisityInfo(), "genxml/hidden/pagesize", "8,16,32,64,128", "8,16,32,64,128", "class='w3-input w3-border w3-light-grey simplisity_sessionfield simplisity_change ' s-sessionfield='#searchtextrocketermstrain,#pagesize,#page' s-cmd='rocketermstrain_list' s-post='.searchdata'  title='" + @ResourceKey("DNNrocket.pagesize") + "'", "32")
+        </div>
+
+        <div class="w3-bar-item w3-right " style=''>
+            <div class="w3-bar">
+                <span class="w3-bar-item w3-button clearsearch " style="display:none;" s-fields=''>@ButtonIcon(ButtonTypes.cancel)</span>
+                @TextBox(new SimplisityInfo(), "genxml/textbox/searchtextrocketermstrain", " style='height:40px;' class='w3-bar-item w3-input w3-border w3-light-grey simplisity_sessionfield actionentrykey' autocomplete='off' ")
+                <span class="w3-bar-item w3-button w3-theme simplisity_click dosearch" style="height:40px;" s-sessionfield='#searchtextrocketermstrain,#pagesize,#page' s-cmd="rocketermstrain_list" s-post=".searchdata">@ButtonIcon(ButtonTypes.search)</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="datasection" class="">
+
+        <div id="datalist2" class="w3-row w3-margin-top ">
+            <table class="w3-table w3-bordered w3-hoverable">
+                <thead>
+                    <tr>
+                        <th>@ResourceKey("RocketPluginProjectTemplate.ref")</th>
+                        <th>@ResourceKey("RocketPluginProjectTemplate.name")</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (SimplisityInfo dataInfo in dataList.DataList)
+                {
+                    var articleref = dataInfo.GetXmlProperty("genxml/textbox/articleref");
+                    var name = dataInfo.GetXmlProperty("genxml/lang/genxml/textbox/articlename");
+                    var test1 = dataInfo.GetXmlProperty("genxml/textbox/test1");
+
+                    <tr class="simplisity_click" s-cmd="rocketermstrain_detail" s-fields='{"articleid":"@dataInfo.ItemID","track":"true"}' style="cursor:pointer;">
+                        <td>@articleref</td>
+                        <td>@name</td>
+                        <td>
+                            @test1
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+
+        @{
+            Model.SetSetting("s-return", "#simplisity_startpanel");
+            Model.SetSetting("s-cmd", "rocketermstrain_list");
+            Model.SetSetting("s-post", ".searchdata");
+        }
+        @RenderTemplate("Paging.cshtml", appThemeSystem, Model)
+
+
+    </div>
+
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.clearsearch ').unbind("click");
+        $('.clearsearch ').click(function () {
+            $('#searchtextrocketermstrain').val('');
+            $('.dosearch').trigger('click');
+            return false; // prevent the button click from happening
+        });
+
+        if ($('#searchtextrocketermstrain').val() !== '') {
+            $('.clearsearch').show();
+        }
+
+        $('.actionentrykey').unbind('keypress');
+        $('.actionentrykey').on('keypress', function (e) {
+            if (e.keyCode == 13) {
+                $('.dosearch').trigger('click');
+                return false; // prevent the button click from happening
+            }
+        });
+
+        $('.actionentrykey').focus();
+
+        // move cursor to end of line
+        var tmpStr = $('.actionentrykey').val();
+        $('.actionentrykey').val('');
+        $('.actionentrykey').val(tmpStr);
+
+        selectMenu('rocketpluginprojecttemplate');
+    });
+
+</script>

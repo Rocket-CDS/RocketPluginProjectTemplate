@@ -117,89 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="active.Text" xml:space="preserve">
-    <value>Active</value>
+  <data name="name.Text" xml:space="preserve">
+    <value>Name</value>
   </data>
-  <data name="backupurl.Text" xml:space="preserve">
-    <value>Backup URL</value>
-  </data>
-  <data name="bankpayment.Text" xml:space="preserve">
-    <value>PayPlug</value>
-  </data>
-  <data name="charset.Text" xml:space="preserve">
-    <value>Charecter Set</value>
-  </data>
-  <data name="currencycode.Text" xml:space="preserve">
-    <value>Currency Code</value>
-  </data>
-  <data name="debugmode.Text" xml:space="preserve">
-    <value>Debug Mode</value>
-  </data>
-  <data name="extrafields.Help" xml:space="preserve">
-    <value>Extra data can be past to PayPlug, via this field.  Use a CSV (key=value,) format.  The key is the name of the PayPlug field.  This data is then included in the remote post, called by BankInterface.cs.</value>
-  </data>
-  <data name="extrafields.Text" xml:space="preserve">
-    <value>Extra Fields</value>
-  </data>
-  <data name="hmackey.Text" xml:space="preserve">
-    <value>HMAC Key</value>
-  </data>
-  <data name="liveposturl.Text" xml:space="preserve">
-    <value>Live Post URL</value>
-  </data>
-  <data name="logourl.Text" xml:space="preserve">
-    <value>Image path for redirect logo.</value>
-  </data>
-  <data name="merchantculturecode.Text" xml:space="preserve">
-    <value>Marchant CultureCode</value>
-  </data>
-  <data name="notifyurl.Text" xml:space="preserve">
-    <value>Notify URL (IPN)</value>
-  </data>
-  <data name="pay.Text" xml:space="preserve">
-    <value>Pay with PayPlug</value>
-  </data>
-  <data name="paybutton.Text" xml:space="preserve">
-    <value>&lt;svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 0 24 24" width="48px" fill="#000000"&gt;&lt;path d="M0 0h24v24H0z" fill="none"/&gt;&lt;path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/&gt;&lt;/svg&gt;</value>
-  </data>
-  <data name="paybuttonmsg.Text" xml:space="preserve">
-    <value>&lt;b&gt;Pay Online - PayPlug&lt;/b&gt;&lt;br/&gt;
-&lt;i&gt;Your order will be instantly accepted, prepared and sent when your payment has been made online. You will be redirected to a secure banking system for the payment.&lt;/i&gt;</value>
-  </data>
-  <data name="paybuttontext.Text" xml:space="preserve">
-    <value>Button Text (html)</value>
-  </data>
-  <data name="paymsg.Text" xml:space="preserve">
-    <value>Pay Message (html)</value>
-  </data>
-  <data name="paynow.Text" xml:space="preserve">
-    <value>Pay Now with PayPlug</value>
-  </data>
-  <data name="payplug.Text" xml:space="preserve">
-    <value>PayPlug</value>
-  </data>
-  <data name="payplugid.Text" xml:space="preserve">
-    <value>PayPlug ID (Account Name)</value>
-  </data>
-  <data name="payplugsettings.Text" xml:space="preserve">
-    <value>PayPlug Settings</value>
-  </data>
-  <data name="preproduction.Text" xml:space="preserve">
-    <value>Pre-Production</value>
-  </data>
-  <data name="returncommand.Help" xml:space="preserve">
-    <value>This is the server command that will be ran when the client returns to the website.  It wil be placed in the return URL as a parameter of "cmd".</value>
-  </data>
-  <data name="returncommand.Text" xml:space="preserve">
-    <value>Return Command</value>
-  </data>
-  <data name="returnurl.Help" xml:space="preserve">
-    <value>This is the URL that the client will be returned to after payment. Use protocol but do not add parameters, any parameters required will be automatically added.</value>
-  </data>
-  <data name="returnurl.Text" xml:space="preserve">
-    <value>Return URL</value>
-  </data>
-  <data name="testposturl.Text" xml:space="preserve">
-    <value>Pre-Production Post URL</value>
+  <data name="ref.Text" xml:space="preserve">
+    <value>Ref</value>
   </data>
 </root>

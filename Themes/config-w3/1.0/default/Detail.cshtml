@@ -1,0 +1,64 @@
+@inherits RocketPluginProjectTemplate.Components.RocketERMStrainTokens<Simplisity.SimplisityRazor>
+@using DNNrocketAPI;
+@using System
+@using System.Linq
+@using System.Xml
+@using Simplisity;
+@using DNNrocketAPI.Components;
+@using RocketPortal.Components;
+@using RocketPluginProjectTemplate.Components;
+
+@{
+    var articleData = (ArticleLimpet)Model.List.First();
+    var info = articleData.Info;
+    var appThemeSystem = (AppThemeSystemLimpet)Model.GetDataObject("appthemesystem");
+}
+
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocket/API/App_LocalResources/")
+@AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate/App_LocalResources/")
+
+@RenderLanguageSelector("rocketermstrain_detail", "{\"articleid\":\"" + articleData.ArticleId + "\"}", appThemeSystem, Model)
+
+<div class="w3-animate-opacity w3-padding">
+
+    <div class="w3-bar searchdata">
+        @HiddenField(new SimplisityInfo(), "genxml/hidden/page", " class='simplisity_sessionfield' s-update='ignore'", "1")
+        <div class="w3-bar-item">
+            <span class="w3-bar-item w3-button material-icons simplisity_click" s-cmd="rocketermstrain_list" s-fields='{"track":"true"}' style="cursor:pointer;">
+                list
+            </span>
+        </div>
+        <div class="w3-bar-item">
+            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketermstrain_save" s-post='#sectiondata' s-fields='{"articleid":"@(articleData.ArticleId)"}'>
+                @ButtonText(ButtonTypes.save)
+            </div>
+        </div>
+    </div>
+
+    <div id="sectiondata" class="w3-row w3-padding">
+
+        <div class="w3-row w3-padding">
+            <label>@ResourceKey("RocketPluginProjectTemplate.ref")</label>
+            @TextBox(info, "genxml/textbox/articleref"," class='w3-input w3-border' ", "", false)
+        </div>
+        <div class="w3-row w3-padding">
+            <label>@ResourceKey("RocketPluginProjectTemplate.name")</label>
+            @TextBox(info, "genxml/lang/genxml/textbox/articlename"," class='w3-input w3-border' ", "",true)
+        </div>
+        <div class="w3-row w3-padding">
+            @TextBox(info, "genxml/textbox/test1"," class='w3-input w3-border' ", "")
+        </div>
+
+    </div>
+
+</div>
+
+@RenderXml(info)
+
+<script>
+
+    $(document).ready(function () {
+        selectMenu('rocketpluginprojecttemplate');
+    });
+
+</script>

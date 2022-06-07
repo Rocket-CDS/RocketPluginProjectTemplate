@@ -19,7 +19,7 @@ namespace RocketPluginProjectTemplate.Components
         private string _langRequired;
         private List<ArticleLimpet> _articleList;
         private const string _tableName = "DNNrocket";
-        private const string _entityTypeCode = "RocketPluginProjectTemplateART";
+        private const string _entityTypeCode = "RocketERMStrainART";
         private DNNrocketController _objCtrl;
         private string _searchFilter;
 
@@ -49,6 +49,8 @@ namespace RocketPluginProjectTemplate.Components
             if (SessionParamData.PageSize == 0) SessionParamData.PageSize = 32;
             if (SessionParamData.OrderByRef == "") SessionParamData.OrderByRef = "sqlorderby-article-name";
 
+            SessionParamData.SearchText = paramInfo.GetXmlProperty("genxml/hidden/searchtextrocketermstrain");
+
             if (populate) Populate();
         }
         public void Populate()
@@ -63,10 +65,12 @@ namespace RocketPluginProjectTemplate.Components
                 _searchFilter += "      ) ";
             }
 
+            var sqlOrderBy = " order by [XMLData].value('(genxml/lang/genxml/textbox/articlename)[1]','nvarchar(max)') ";
+
             SessionParamData.RowCount = _objCtrl.GetListCount(PortalData.PortalId, -1, _entityTypeCode, _searchFilter, _langRequired, _tableName);
             RecordCount = SessionParamData.RowCount;
 
-            DataList = _objCtrl.GetList(PortalData.PortalId, -1, _entityTypeCode, _searchFilter, _langRequired, "", 0, SessionParamData.Page, SessionParamData.PageSize, SessionParamData.RowCount, _tableName);
+            DataList = _objCtrl.GetList(PortalData.PortalId, -1, _entityTypeCode, _searchFilter, _langRequired, sqlOrderBy, 0, SessionParamData.Page, SessionParamData.PageSize, SessionParamData.RowCount, _tableName);
         }
         private string GetFilterSQL(string SqlFilterTemplate, SimplisityInfo paramInfo)
         {
@@ -100,7 +104,7 @@ namespace RocketPluginProjectTemplate.Components
             _articleList = new List<ArticleLimpet>();
             foreach (var o in DataList)
             {
-                var articleData = new ArticleLimpet(PortalData.PortalId, o.GUIDKey, _langRequired);
+                var articleData = new ArticleLimpet(PortalData.PortalId, o.ItemID, _langRequired);
                 _articleList.Add(articleData);
             }
             return _articleList;
@@ -114,7 +118,7 @@ namespace RocketPluginProjectTemplate.Components
             var list = GetAllArticles();
             foreach (var pInfo in list)
             {
-                var articleData = new ArticleLimpet(PortalData.PortalId, pInfo.GUIDKey, _langRequired);
+                var articleData = new ArticleLimpet(PortalData.PortalId, pInfo.ItemID, _langRequired);
                 articleData.ValidateAndUpdate();
             }
         }

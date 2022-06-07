@@ -5,6 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="packages\**" />
+    <EmbeddedResource Remove="packages\**" />
+    <None Remove="packages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\DNNrocket\API\DNNrocketAPI.csproj" />
     <ProjectReference Include="..\..\DNNrocket\RocketPortal\RocketPortal.csproj" />
     <ProjectReference Include="..\..\DNNrocket\Simplisity\Simplisity.csproj" />

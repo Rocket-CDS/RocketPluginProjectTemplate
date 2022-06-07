@@ -17,8 +17,8 @@
           <interfacekey>rocketpluginprojecttemplate</interfacekey>
           <namespaceclass>RocketPluginProjectTemplate.API.StartConnect</namespaceclass>
           <assembly>RocketPluginProjectTemplate</assembly>
-          <interfaceicon></interfaceicon>
-          <defaultcommand>rocketpluginprojecttemplate_test</defaultcommand>
+          <interfaceicon>school</interfaceicon>
+          <defaultcommand>rocketermstrain_list</defaultcommand>
           <relpath>/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate</relpath>
         </textbox>
         <providertype></providertype>

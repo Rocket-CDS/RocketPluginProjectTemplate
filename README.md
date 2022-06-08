@@ -17,7 +17,15 @@ RocketCDS plugins are always attached to a system and must have a unique name.
 
 Copy the template to your working environment. This is usually "/DesktopModules/DNNrocketModules/\<new plugin project>"
 
-Rename the project folder to be the new project plugin name, if not already done.
+Rename the project folder to be the new project plugin name.
+
+Rename Project files
+
+Rename Solution files
+
+Rename Resx File.
+
+Rename DNN manifest.
 
 Replace "rocketpluginprojecttemplate" with "\<newprojectname>" case-sensitive in Project
 
@@ -27,13 +35,9 @@ Replace "rocketsystemprojecttemplate" with the "\<systemkey>" of the system the 
 
 Replace "RocketSystemProjectTemplate" with the "\<SystemKey>" of the system the plugin is for, case-sensitive in Project
 
-Rename Project files
+Update "interfaceicon" node in system.rules file.
 
-Rename Solution files
-
-Rename Resx File.
-
-Rename DNN manifest.
+Update plugin name in SideMenu.resx file.
 
 Ensure all projects in the solution are loaded. The project uses project references and expects the source code, but you can also add a reference to the assemblies. External assemblies are usually added to a "_external" folder underneath the project root.
 

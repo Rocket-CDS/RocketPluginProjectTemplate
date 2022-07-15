@@ -8,7 +8,92 @@
     </provtypesdata>
 
     <providerdata list="true">
-    </providerdata>
+
+		<genxml>
+			<textbox>
+				<interfacekey>events-rocketpluginprojecttemplate</interfacekey>
+				<namespaceclass>RocketPluginProjectTemplate.Components.Events</namespaceclass>
+				<assembly>RocketPluginProjectTemplate</assembly>
+				<interfaceicon></interfaceicon>
+				<defaultcommand></defaultcommand>
+				<relpath>/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate</relpath>
+			</textbox>
+			<providertype>eventprovider</providertype>
+			<dropdownlist>
+				<group></group>
+			</dropdownlist>
+			<checkbox>
+				<onmenu>false</onmenu>
+				<active>true</active>
+			</checkbox>
+			<radio>
+				<securityrolesadministrators>1</securityrolesadministrators>
+				<securityrolesmanager>0</securityrolesmanager>
+				<securityroleseditor>0</securityroleseditor>
+				<securityrolesclienteditor>0</securityrolesclienteditor>
+				<securityrolesregisteredusers>0</securityrolesregisteredusers>
+				<securityrolessubscribers>0</securityrolessubscribers>
+				<securityrolesall>0</securityrolesall>
+			</radio>
+		</genxml>
+
+		<genxml>
+			<textbox>
+				<interfacekey>scheduler-rocketpluginprojecttemplate</interfacekey>
+				<namespaceclass>RocketPluginProjectTemplate.Components.Scheduler</namespaceclass>
+				<assembly>RocketPluginProjectTemplate</assembly>
+				<interfaceicon></interfaceicon>
+				<defaultcommand></defaultcommand>
+				<relpath>/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate</relpath>
+			</textbox>
+			<providertype>scheduler</providertype>
+			<dropdownlist>
+				<group></group>
+			</dropdownlist>
+			<checkbox>
+				<onmenu>false</onmenu>
+				<active>true</active>
+			</checkbox>
+			<radio>
+				<securityrolesadministrators>1</securityrolesadministrators>
+				<securityrolesmanager>0</securityrolesmanager>
+				<securityroleseditor>0</securityroleseditor>
+				<securityrolesclienteditor>0</securityrolesclienteditor>
+				<securityrolesregisteredusers>0</securityrolesregisteredusers>
+				<securityrolessubscribers>0</securityrolessubscribers>
+				<securityrolesall>0</securityrolesall>
+			</radio>
+		</genxml>
+
+		<genxml>
+			<textbox>
+				<interfacekey>hbs-rocketpluginprojecttemplate</interfacekey>
+				<namespaceclass>RocketPluginProjectTemplate.Components.HandlebarsEngine</namespaceclass>
+				<assembly>RocketPluginProjectTemplate</assembly>
+				<interfaceicon></interfaceicon>
+				<defaultcommand></defaultcommand>
+				<relpath>/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate</relpath>
+			</textbox>
+			<providertype>handlebars</providertype>
+			<dropdownlist>
+				<group></group>
+			</dropdownlist>
+			<checkbox>
+				<onmenu>false</onmenu>
+				<active>true</active>
+			</checkbox>
+			<radio>
+				<securityrolesadministrators>1</securityrolesadministrators>
+				<securityrolesmanager>0</securityrolesmanager>
+				<securityroleseditor>0</securityroleseditor>
+				<securityrolesclienteditor>0</securityrolesclienteditor>
+				<securityrolesregisteredusers>0</securityrolesregisteredusers>
+				<securityrolessubscribers>0</securityrolessubscribers>
+				<securityrolesall>0</securityrolesall>
+			</radio>
+		</genxml>
+
+	</providerdata>
 
     <interfacedata list="true">
 

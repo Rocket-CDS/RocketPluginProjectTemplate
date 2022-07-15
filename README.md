@@ -1,9 +1,11 @@
 # RocketPluginProjectTemplate
 
+**Download Here:** [https://github.com/Rocket-CDS/RocketPluginProjectTemplate](https://github.com/Rocket-CDS/RocketPluginProjectTemplate)  
+
 ## Introduction
 Provides a working template for creating a Visual Studio PLUGIN project for a RocketCDS.
 
-RocketCDS systems can have plugins to expand functionality.  This project is a template to help create plugins for different systems.
+RocketCDS systems can have plugins to expand functionality.  RocketPluginProjectTemplate is a template to help create plugins for different systems.
 
 By default all RocketCDS systems support plugins, but plugins can be blocked by the system creator.  Check the documentation of the system you wish to add a plugin to.
 

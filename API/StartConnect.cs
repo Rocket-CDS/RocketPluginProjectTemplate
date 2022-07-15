@@ -40,13 +40,13 @@ namespace RocketPluginProjectTemplate.API
                     strOut = GetDetail(_sessionParams.CultureCodeEdit);
                     break;
                 case "rocketpluginprojecttemplate_add":
-                    strOut = AddArticle(_sessionParams.CultureCodeEdit);
+                    strOut = AddpArticle(_sessionParams.CultureCodeEdit);
                     break;
                 case "rocketpluginprojecttemplate_delete":
                     strOut = RenderList();
                     break;
                 case "rocketpluginprojecttemplate_save":
-                    strOut = SaveArticle(_sessionParams.CultureCodeEdit);
+                    strOut = SavepArticle(_sessionParams.CultureCodeEdit);
                     break;
                 case "rocketsystem_login":
                     strOut = ReloadPage();

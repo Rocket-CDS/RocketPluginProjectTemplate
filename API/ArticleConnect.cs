@@ -11,46 +11,46 @@ namespace RocketPluginProjectTemplate.API
 {
     public partial class StartConnect
     {
-        private ArticleLimpet GetActiveArticle(int articleId, string cultureCode)
+        private pArticleLimpet GetActivepArticle(int particleId, string cultureCode)
         {
-            return new ArticleLimpet(_portalData.PortalId, articleId, cultureCode);
+            return new pArticleLimpet(_portalData.PortalId, particleId, cultureCode);
         }
-        private ArticleLimpet GetActiveArticle(string cultureCode)
+        private pArticleLimpet GetActivepArticle(string cultureCode)
         {
-            var articleId = _paramInfo.GetXmlPropertyInt("genxml/hidden/articleid");
-            return new ArticleLimpet(_portalData.PortalId, articleId, cultureCode);
+            var particleId = _paramInfo.GetXmlPropertyInt("genxml/hidden/particleid");
+            return new pArticleLimpet(_portalData.PortalId, particleId, cultureCode);
         }
 
-        public String GetArticleDetail(int articleId, string cultureCode)
+        public String GetpArticleDetail(int particleId, string cultureCode)
         {
-            var articleData = GetActiveArticle(articleId, cultureCode);
-            return GetArticleDetail(articleData);
+            var particleData = GetActivepArticle(particleId, cultureCode);
+            return GetpArticleDetail(particleData);
         }
-        public String GetArticleDetail(ArticleLimpet articleData)
+        public String GetpArticleDetail(pArticleLimpet particleData)
         {
             var razorTempl = _appThemePlugin.GetTemplate("detail.cshtml");
-            var pr = RenderRazorUtils.RazorProcessData(razorTempl, articleData, _dataObjects, _passSettings, _sessionParams, true);
+            var pr = RenderRazorUtils.RazorProcessData(razorTempl, particleData, _dataObjects, _passSettings, _sessionParams, true);
             if (pr.StatusCode != "00") return pr.ErrorMsg;
             return pr.RenderedText;
         }
         public String GetDetail(string cultureCode)
         {
-            var articleData = GetActiveArticle(cultureCode);
-            return GetArticleDetail(articleData);
+            var particleData = GetActivepArticle(cultureCode);
+            return GetpArticleDetail(particleData);
         }
-        public String AddArticle(string cultureCode)
+        public String AddpArticle(string cultureCode)
         {
-            return GetArticleDetail(-1, cultureCode);
+            return GetpArticleDetail(-1, cultureCode);
         }
-        public String SaveArticle(string cultureCode)
+        public String SavepArticle(string cultureCode)
         {
-            var articleData = GetActiveArticle(cultureCode);
-            articleData.Save(_postInfo);
-            return GetArticleDetail(articleData);
+            var particleData = GetActivepArticle(cultureCode);
+            particleData.Save(_postInfo);
+            return GetpArticleDetail(particleData);
         }
         private string RenderList()
         {
-            var dataList = new ArticleLimpetList(_paramInfo, _portalData, _sessionParams.CultureCodeEdit, true);
+            var dataList = new pArticleLimpetList(_paramInfo, _portalData, _sessionParams.CultureCodeEdit, true);
             _dataObjects.Add("datalist", dataList);
 
             _sessionParams.RowCount = dataList.RecordCount; //Add row count for paging.

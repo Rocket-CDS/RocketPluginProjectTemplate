@@ -9,15 +9,15 @@
 @using RocketPluginProjectTemplate.Components;
 
 @{
-    var articleData = (ArticleLimpet)Model.List.First();
-    var info = articleData.Info;
+    var particleData = (pArticleLimpet)Model.List.First();
+    var info = particleData.Info;
     var appThemeSystem = (AppThemeSystemLimpet)Model.GetDataObject("appthemesystem");
 }
 
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocket/API/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate/App_LocalResources/")
 
-@RenderLanguageSelector("rocketpluginprojecttemplate_detail", "{\"articleid\":\"" + articleData.ArticleId + "\"}", appThemeSystem, Model)
+@RenderLanguageSelector("rocketpluginprojecttemplate_detail", "{\"particleid\":\"" + particleData.pArticleId + "\"}", appThemeSystem, Model)
 
 <div class="w3-animate-opacity w3-padding">
 
@@ -29,7 +29,7 @@
             </span>
         </div>
         <div class="w3-bar-item">
-            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketpluginprojecttemplate_save" s-post='#sectiondata' s-fields='{"articleid":"@(articleData.ArticleId)"}'>
+            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketpluginprojecttemplate_save" s-post='#sectiondata' s-fields='{"particleid":"@(particleData.pArticleId)"}'>
                 @ButtonText(ButtonTypes.save)
             </div>
         </div>
@@ -39,11 +39,11 @@
 
         <div class="w3-row w3-padding">
             <label>@ResourceKey("RocketPluginProjectTemplate.ref")</label>
-            @TextBox(info, "genxml/textbox/articleref"," class='w3-input w3-border' ", "", false)
+            @TextBox(info, "genxml/textbox/particleref"," class='w3-input w3-border' ", "", false)
         </div>
         <div class="w3-row w3-padding">
             <label>@ResourceKey("RocketPluginProjectTemplate.name")</label>
-            @TextBox(info, "genxml/lang/genxml/textbox/articlename"," class='w3-input w3-border' ", "",true)
+            @TextBox(info, "genxml/lang/genxml/textbox/particlename"," class='w3-input w3-border' ", "",true)
         </div>
         <div class="w3-row w3-padding">
             @TextBox(info, "genxml/textbox/test1"," class='w3-input w3-border' ", "")

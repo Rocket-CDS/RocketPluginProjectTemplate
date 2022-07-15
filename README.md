@@ -45,13 +45,13 @@ This project should now compile.
 
 ## Database Changes
 
-The project template uses an example a class limpet call "ArticleLimpet" and "ArticleListLimpet".  These are the data source access points.  By default they use the DNNrocket table, but this may need to be changed depending of what table the Rocket System is using.  
+The project template uses an example a class limpet call "pArticleLimpet" and "pArticleListLimpet".  These are the data source access points.  By default they use the DNNrocket table, but this may need to be changed depending of what table the Rocket System is using.  
 
 The database table column "TYPECODE" should usually be unique for the plugin, the template therefore appends the plugin name to the default TYPECODE name.
 
 The plugin template expects to be using the system database tables, no database tables or SPROCs have been defined.  Although each plugin can have their own set of tables and SPROCs if required.  
 
-NOTE: "ArticleLimpet" and "ArticleListLimpet" are examples and are expected to be replaced or altered to make the plugin work.
+NOTE: "pArticleLimpet" and "pArticleListLimpet" are examples and are expected to be replaced or altered to make the plugin work.
 
 ## Commands
 

@@ -1,5 +1,6 @@
   <genxml>
     <systemkey>RocketSystemProjectTemplate</systemkey>
+	<plugin>true</plugin>
 
     <groupsdata list="true">
     </groupsdata>

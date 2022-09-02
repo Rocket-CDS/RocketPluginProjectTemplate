@@ -10,7 +10,8 @@ RocketCDS systems can have plugins to expand functionality.  RocketPluginProject
 By default all RocketCDS systems support plugins, but plugins can be blocked by the system creator.  Check the documentation of the system you wish to add a plugin to.
 
 ## Architechutre
-RocketCDS plugins are always attached to a system and must have a unique name.
+RocketCDS plugins are always attached to a system and must have a unique name.  
+In the "system.rules" the XML node "genxml/plugin" MUST be set to true.  This prevents the plugin processing on the scheulder like a system.
 
 
 ## Creating a new Project

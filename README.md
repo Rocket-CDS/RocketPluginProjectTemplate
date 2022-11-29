@@ -20,23 +20,23 @@ In the "system.rules" the XML node "genxml/plugin" MUST be set to true.  This pr
 Use https://github.com/Rocket-CDS/RenameProj
 
 ### Manually
-**NOTE: Do NOT use an underscore ( _ ) in the new project name.  The underscore is used as a delimiter in RocketCDS.**
-Copy the template to your working environment. This is usually "/DesktopModules/DNNrocketModules/\<new plugin project>"  (Download zip and extract)
-Rename the project folder to be the new project plugin name.
-Rename Project files
-Rename Solution files
-Rename Resx File.
-Rename DNN manifest.
-Replace "rocketpluginprojecttemplate" with "\<newprojectname>" case-sensitive in Project
-Replace "RocketPluginProjectTemplate" with "\<NewProjectName>" case-sensitive in Project
-Replace "rocketsystemprojecttemplate" with the "\<systemkey>" of the system the plugin is for, case-sensitive in Project
-Replace "RocketSystemProjectTemplate" with the "\<SystemKey>" of the system the plugin is for, case-sensitive in Project
+**NOTE: Do NOT use an underscore ( _ ) in the new project name.  The underscore is used as a delimiter in RocketCDS.**  
+Copy the template to your working environment. This is usually "/DesktopModules/DNNrocketModules/\<new plugin project>"  (Download zip and extract)  
+Rename the project folder to be the new project plugin name.  
+Rename Project files.  
+Rename Solution files.  
+Rename Resx File.  
+Rename DNN manifest.  
+Replace "rocketpluginprojecttemplate" with "\<newprojectname>" case-sensitive in Project.  
+Replace "RocketPluginProjectTemplate" with "\<NewProjectName>" case-sensitive in Project.  
+Replace "rocketsystemprojecttemplate" with the "\<systemkey>" of the system the plugin is for, case-sensitive in Project.  
+Replace "RocketSystemProjectTemplate" with the "\<SystemKey>" of the system the plugin is for, case-sensitive in Project.  
 
 ### Extra Actions 
-Update "interfaceicon" node in system.rules file.
-Update plugin name in SideMenu.resx file.
+Update "interfaceicon" node in system.rules file.  
+Update plugin name in SideMenu.resx file.  
 
-Ensure all projects in the solution are loaded. The project uses project references and expects the source code, but you can also add a reference to the assemblies. External assemblies are usually added to a "_external" folder underneath the project root.
+Ensure all projects in the solution are loaded. The project uses project references and expects the source code, but you can also add a reference to the assemblies. External assemblies are usually added to a "_external" folder underneath the project root.  
 
 This project should now compile.
 

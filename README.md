@@ -22,10 +22,10 @@ Copy the template to your working environment. This is usually "/DesktopModules/
 
 You have 2 options to rename the template.  "Auto Replace" or "Manually".  
 
-### Auto Replace
+### Option 1 - Auto Replace
 Use https://github.com/Rocket-CDS/RenameProj
 
-### Manually
+### Option 2 - Manually
 Rename the project folder to be the new project plugin name.  
 Rename Project files.  
 Rename Solution files.  

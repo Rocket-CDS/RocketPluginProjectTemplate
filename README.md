@@ -20,7 +20,7 @@ In the "system.rules" the XML node "genxml/plugin" MUST be set to true.  This pr
 
 Copy the template to your working environment. This is usually "/DesktopModules/DNNrocketModules/\<new plugin project>"  (Download zip and extract)  
 
-ou have 2 options to rename the template.  "Auto Replace" or "Manually".  
+You have 2 options to rename the template.  "Auto Replace" or "Manually".  
 
 ### Auto Replace
 Use https://github.com/Rocket-CDS/RenameProj

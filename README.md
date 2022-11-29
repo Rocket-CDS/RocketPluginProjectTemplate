@@ -36,7 +36,7 @@ Replace "RocketPluginProjectTemplate" with "\<NewProjectName>" case-sensitive in
 Replace "rocketsystemprojecttemplate" with the "\<systemkey>" of the system the plugin is for, case-sensitive in Project.  
 Replace "RocketSystemProjectTemplate" with the "\<SystemKey>" of the system the plugin is for, case-sensitive in Project.  
 
-## Final Actions 
+### Final Actions 
 Update "interfaceicon" node in system.rules file.  
 Update plugin name in SideMenu.resx file.  
 

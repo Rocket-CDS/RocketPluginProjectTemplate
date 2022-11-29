@@ -16,12 +16,16 @@ In the "system.rules" the XML node "genxml/plugin" MUST be set to true.  This pr
 
 ## Creating a new Project
 
+**NOTE: Do NOT use an underscore ( _ ) in the new project name.  The underscore is used as a delimiter in RocketCDS.**  
+
+Copy the template to your working environment. This is usually "/DesktopModules/DNNrocketModules/\<new plugin project>"  (Download zip and extract)  
+
+ou have 2 options to rename the template.  "Auto Replace" or "Manually".  
+
 ### Auto Replace
 Use https://github.com/Rocket-CDS/RenameProj
 
 ### Manually
-**NOTE: Do NOT use an underscore ( _ ) in the new project name.  The underscore is used as a delimiter in RocketCDS.**  
-Copy the template to your working environment. This is usually "/DesktopModules/DNNrocketModules/\<new plugin project>"  (Download zip and extract)  
 Rename the project folder to be the new project plugin name.  
 Rename Project files.  
 Rename Solution files.  
@@ -32,7 +36,7 @@ Replace "RocketPluginProjectTemplate" with "\<NewProjectName>" case-sensitive in
 Replace "rocketsystemprojecttemplate" with the "\<systemkey>" of the system the plugin is for, case-sensitive in Project.  
 Replace "RocketSystemProjectTemplate" with the "\<SystemKey>" of the system the plugin is for, case-sensitive in Project.  
 
-### Extra Actions 
+## Final Actions 
 Update "interfaceicon" node in system.rules file.  
 Update plugin name in SideMenu.resx file.  
 

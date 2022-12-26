@@ -72,4 +72,5 @@ To load the interfaces from the "system.rules":
 
 ## Providers
 
-Remove any provider config from the providerdata list in system.rules, for providers not being used.
+Remove any provider config from the providerdata list in system.rules, for providers not being used.  
+NOTE: The provider XML with the plugin name should not be removed.  This identifies the pugin to the system, so it can be listed on the system plugin list.  

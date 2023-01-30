@@ -9,15 +9,15 @@
 @using RocketPluginProjectTemplate.Components;
 
 @{
-    var particleData = (pArticleLimpet)Model.List.First();
-    var info = particleData.Info;
+    var articleData = (ArticleLimpet)Model.List.First();
+    var info = articleData.Info;
     var appThemeSystem = (AppThemeSystemLimpet)Model.GetDataObject("appthemesystem");
 }
 
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocket/API/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate/App_LocalResources/")
 
-@RenderLanguageSelector("rocketpluginprojecttemplate_detail", "{\"particleid\":\"" + particleData.pArticleId + "\"}", appThemeSystem, Model)
+@RenderLanguageSelector("rocketpluginprojecttemplate_detail", "{\"articleid\":\"" + articleData.ArticleId + "\"}", appThemeSystem, Model)
 
 <div class="w3-animate-opacity w3-padding">
 
@@ -29,7 +29,7 @@
             </span>
         </div>
         <div class="w3-bar-item">
-            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketpluginprojecttemplate_save" s-post='#sectiondata' s-fields='{"particleid":"@(particleData.pArticleId)"}'>
+            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketpluginprojecttemplate_save" s-post='#sectiondata' s-fields='{"itemid":"@(articleData.ArticleId)"}'>
                 @ButtonText(ButtonTypes.save)
             </div>
         </div>

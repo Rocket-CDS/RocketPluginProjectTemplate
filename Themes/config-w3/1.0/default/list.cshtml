@@ -10,7 +10,7 @@
 
 @{
     var portalData = (PortalLimpet)Model.List.First();
-    var dataList = (pArticleLimpetList)Model.GetDataObject("datalist");
+    var dataList = (ArticleLimpetList)Model.GetDataObject("datalist");
     var systemData = (SystemLimpet)Model.GetDataObject("systemdata");
     var appThemeSystem = (AppThemeSystemLimpet)Model.GetDataObject("appthemesystem");
 }
@@ -31,7 +31,7 @@
             </span>
         </div>
         <div class="w3-bar-item">
-            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketpluginprojecttemplate_add" s-fields='{"particleid":"-1"}'>@ButtonText(ButtonTypes.add)</div>
+            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketpluginprojecttemplate_add" s-fields='{"articleid":"-1"}'>@ButtonText(ButtonTypes.add)</div>
         </div>
 
         <div class="w3-bar-item w3-right w3-hide-small w3-margin-left" style="width: 100px">
@@ -65,7 +65,7 @@
                     var name = dataInfo.GetXmlProperty("genxml/lang/genxml/textbox/particlename");
                     var test1 = dataInfo.GetXmlProperty("genxml/textbox/test1");
 
-                    <tr class="simplisity_click" s-cmd="rocketpluginprojecttemplate_detail" s-fields='{"particleid":"@dataInfo.ItemID","track":"true"}' style="cursor:pointer;">
+                    <tr class="simplisity_click" s-cmd="rocketpluginprojecttemplate_detail" s-fields='{"itemid":"@dataInfo.ItemID","track":"true"}' style="cursor:pointer;">
                         <td>@particleref</td>
                         <td>@name</td>
                         <td>

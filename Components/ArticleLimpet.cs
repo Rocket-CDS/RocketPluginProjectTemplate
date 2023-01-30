@@ -14,39 +14,34 @@ using System.Xml.Linq;
 
 namespace RocketPluginProjectTemplate.Components
 {
-    public class pArticleLimpet
+    public class ArticleLimpet
     {
-        private const string _tableName = "DNNrocket";
+        private const string _tableName = "rocketsystemprojecttemplate";
         private const string _entityTypeCode = "RocketPluginProjectTemplateART";
         private DNNrocketController _objCtrl;
         private SimplisityInfo _info;
 
-        /// <summary>
-        /// Should be used to create an particle, the portalId is required on creation
-        /// </summary>
-        /// <param name="portalId"></param>
-        /// <param name="dataRef"></param>
-        /// <param name="langRequired"></param>
-        public pArticleLimpet(int portalId, int particleId, string langRequired)
+        public ArticleLimpet(int portalId, int articleId, string cultureCode)
         {
             PortalId = portalId;
             _info = new SimplisityInfo();
-            _info.ItemID = particleId;
+            _info.ItemID = articleId;
             _info.TypeCode = _entityTypeCode;
             _info.ModuleId = -1;
             _info.UserId = -1;
             _info.GUIDKey = "";
             _info.PortalId = PortalId;
 
-            Populate(particleId, langRequired);
-        }
-
-        private void Populate(int particleId, string cultureCode)
-        {
-            _objCtrl = new DNNrocketController();
             CultureCode = cultureCode;
 
-            var info = _objCtrl.GetInfo(particleId, cultureCode, _tableName);
+            Populate(articleId);
+        }
+
+        private void Populate(int articleId)
+        {
+            _objCtrl = new DNNrocketController();
+
+            var info = _objCtrl.GetInfo(articleId, CultureCode, _tableName);
             if (info != null && info.ItemID > 0) _info = info; // check if we have a real record, or a dummy being created and not saved yet.
             _info.Lang = CultureCode;
             PortalId = _info.PortalId;
@@ -90,7 +85,7 @@ namespace RocketPluginProjectTemplate.Components
         }
         public void RebuildLangIndex()
         {
-            _objCtrl.RebuildLangIndex(PortalId, pArticleId, _tableName);
+            _objCtrl.RebuildLangIndex(PortalId, ArticleId, _tableName);
         }
         public int ValidateAndUpdate()
         {
@@ -122,7 +117,7 @@ namespace RocketPluginProjectTemplate.Components
         public int ModuleId { get { return _info.ModuleId; } set { _info.ModuleId = value; } }
         public int XrefItemId { get { return _info.XrefItemId; } set { _info.XrefItemId = value; } }
         public int ParentItemId { get { return _info.ParentItemId; } set { _info.ParentItemId = value; } }
-        public int pArticleId { get { return _info.ItemID; } set { _info.ItemID = value; } }
+        public int ArticleId { get { return _info.ItemID; } set { _info.ItemID = value; } }
         public string DataRef { get { return _info.GUIDKey; } set { _info.GUIDKey = value; } }
         public string GUIDKey { get { return _info.GUIDKey; } set { _info.GUIDKey = value; } }
         public int SortOrder { get { return _info.SortOrder; } set { _info.SortOrder = value; } }

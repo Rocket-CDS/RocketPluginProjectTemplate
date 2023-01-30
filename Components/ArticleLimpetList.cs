@@ -14,16 +14,16 @@ using System.Xml;
 namespace RocketPluginProjectTemplate.Components
 {
 
-    public class pArticleLimpetList
+    public class ArticleLimpetList
     {
         private string _langRequired;
-        private List<pArticleLimpet> _particleList;
-        private const string _tableName = "DNNrocket";
+        private List<ArticleLimpet> _particleList;
+        private const string _tableName = "rocketsystemprojecttemplate";
         private const string _entityTypeCode = "RocketPluginProjectTemplateART";
         private DNNrocketController _objCtrl;
         private string _searchFilter;
 
-        public pArticleLimpetList(PortalLimpet portalData, string langRequired, bool populate)
+        public ArticleLimpetList(PortalLimpet portalData, string langRequired, bool populate)
         {
             PortalData = portalData;
 
@@ -37,7 +37,7 @@ namespace RocketPluginProjectTemplate.Components
 
             if (populate) Populate();
         }
-        public pArticleLimpetList(SimplisityInfo paramInfo, PortalLimpet portalData, string langRequired, bool populate, bool showHidden = true)
+        public ArticleLimpetList(SimplisityInfo paramInfo, PortalLimpet portalData, string langRequired, bool populate, bool showHidden = true)
         {
             PortalData = portalData;
 
@@ -99,12 +99,12 @@ namespace RocketPluginProjectTemplate.Components
         public List<SimplisityInfo> DataList { get; private set; }
         public PortalLimpet PortalData { get; set; }
         public int RecordCount { get; set; }        
-        public List<pArticleLimpet> GetpArticleList()
+        public List<ArticleLimpet> GetpArticleList()
         {
-            _particleList = new List<pArticleLimpet>();
+            _particleList = new List<ArticleLimpet>();
             foreach (var o in DataList)
             {
-                var particleData = new pArticleLimpet(PortalData.PortalId, o.ItemID, _langRequired);
+                var particleData = new ArticleLimpet(PortalData.PortalId, o.ItemID, _langRequired);
                 _particleList.Add(particleData);
             }
             return _particleList;
@@ -118,7 +118,7 @@ namespace RocketPluginProjectTemplate.Components
             var list = GetAllpArticles();
             foreach (var pInfo in list)
             {
-                var particleData = new pArticleLimpet(PortalData.PortalId, pInfo.ItemID, _langRequired);
+                var particleData = new ArticleLimpet(PortalData.PortalId, pInfo.ItemID, _langRequired);
                 particleData.ValidateAndUpdate();
             }
         }

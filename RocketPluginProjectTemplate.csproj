@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\DNNrocket\API\DNNrocketAPI.csproj" />
+    <ProjectReference Include="..\..\DNNrocket\RocketAppTheme\AppThemes.csproj" />
     <ProjectReference Include="..\..\DNNrocket\RocketPortal\RocketPortal.csproj" />
     <ProjectReference Include="..\..\DNNrocket\Simplisity\Simplisity.csproj" />
   </ItemGroup>
@@ -19,6 +20,9 @@
   <ItemGroup>
     <Reference Include="Handlebars">
       <HintPath>..\..\DNNrocket\API\_external\Handlebars.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\DNNrocket\API\_external\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
 

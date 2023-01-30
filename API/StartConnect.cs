@@ -13,14 +13,8 @@ namespace RocketPluginProjectTemplate.API
         private SimplisityInfo _postInfo;
         private SimplisityInfo _paramInfo;
         private RocketInterface _rocketInterface;
-        private Dictionary<string, string> _passSettings;
-        private SystemLimpet _systemData;
         private SessionParams _sessionParams;
-        private AppThemeSystemLimpet _appThemeSystem;
-        private AppThemeSystemLimpet _appThemePlugin;
-        private AppThemeDNNrocketLimpet _appThemePortal;
-        private PortalLimpet _portalData;
-        private Dictionary<string, object> _dataObjects;
+        private DataObjectLimpet _dataObject;
 
         public override Dictionary<string, object> ProcessCommand(string paramCmd, SimplisityInfo systemInfo, SimplisityInfo interfaceInfo, SimplisityInfo postInfo, SimplisityInfo paramInfo, string langRequired = "")
         {
@@ -37,16 +31,16 @@ namespace RocketPluginProjectTemplate.API
                     strOut = RenderList();
                     break;
                 case "rocketpluginprojecttemplate_detail":
-                    strOut = GetDetail(_sessionParams.CultureCodeEdit);
+                    strOut = GetDetail();
                     break;
                 case "rocketpluginprojecttemplate_add":
-                    strOut = AddpArticle(_sessionParams.CultureCodeEdit);
+                    strOut = AddpArticle();
                     break;
                 case "rocketpluginprojecttemplate_delete":
                     strOut = RenderList();
                     break;
                 case "rocketpluginprojecttemplate_save":
-                    strOut = SavepArticle(_sessionParams.CultureCodeEdit);
+                    strOut = SavepArticle();
                     break;
                 case "rocketsystem_login":
                     strOut = ReloadPage();
@@ -60,8 +54,8 @@ namespace RocketPluginProjectTemplate.API
         private string ReloadPage()
         {
             UserUtils.SignOut();
-            var razorTempl = _appThemePortal.GetTemplate("Reload.cshtml");
-            var pr = RenderRazorUtils.RazorProcessData(razorTempl, _portalData, _dataObjects, _passSettings, _sessionParams, true);
+            var razorTempl = _dataObject.AppThemePortal.GetTemplate("Reload.cshtml");
+            var pr = RenderRazorUtils.RazorProcessData(razorTempl, _dataObject.PortalData, _dataObject.DataObjects, _dataObject.Settings, _sessionParams, true);
             if (pr.StatusCode != "00") return pr.ErrorMsg;
             return pr.RenderedText;
         }
@@ -70,13 +64,12 @@ namespace RocketPluginProjectTemplate.API
         {
             _postInfo = postInfo;
             _paramInfo = paramInfo;
-            _systemData = new SystemLimpet(systemInfo.GetXmlProperty("genxml/systemkey"));
-            _appThemeSystem = new AppThemeSystemLimpet(_systemData.SystemKey);
-            _appThemePlugin = new AppThemeSystemLimpet("rocketpluginprojecttemplate");
+
+            var portalid = _paramInfo.GetXmlPropertyInt("genxml/hidden/portalid");
+            if (portalid == 0) portalid = PortalUtils.GetCurrentPortalId();
+
             _rocketInterface = new RocketInterface(interfaceInfo);
             _sessionParams = new SessionParams(_paramInfo);
-            _passSettings = new Dictionary<string, string>();
-            _appThemePortal = new AppThemeDNNrocketLimpet("rocketportal");
 
             // Assign Langauge
             DNNrocketUtils.SetCurrentCulture();
@@ -85,28 +78,11 @@ namespace RocketPluginProjectTemplate.API
             DNNrocketUtils.SetCurrentCulture(_sessionParams.CultureCode);
             DNNrocketUtils.SetEditCulture(_sessionParams.CultureCodeEdit);
 
-            _portalData = new PortalLimpet(PortalUtils.GetPortalId());
+            var systemkey = systemInfo.GetXmlProperty("genxml/systemkey");
+            _dataObject = new DataObjectLimpet(portalid, _sessionParams.ModuleRef, _sessionParams, systemkey);
 
-            var securityData = new SecurityLimpet(PortalUtils.GetPortalId(), _systemData.SystemKey, _rocketInterface, -1, -1);
-
-            _dataObjects = new Dictionary<string, object>();
-            _dataObjects.Add("appthemesystem", _appThemeSystem);
-            _dataObjects.Add("appthemeportal", _appThemePortal);
-            _dataObjects.Add("appthemeplugin", _appThemePlugin);
-            _dataObjects.Add("portaldata", _portalData);
-            _dataObjects.Add("securitydata", securityData);
-            _dataObjects.Add("systemdata", _systemData);
-
-            if (paramCmd.StartsWith("remote_"))
-            {
-                var sk = _paramInfo.GetXmlProperty("genxml/remote/securitykeyedit");
-                if (!UserUtils.IsEditor() && _portalData.SecurityKeyEdit != sk) paramCmd = "";
-            }
-            else
-            {
-                paramCmd = securityData.HasSecurityAccess(paramCmd, "rocketsystem_login");
-            }
-
+            var securityData = new SecurityLimpet(portalid, systemkey, _rocketInterface, -1, -1, _dataObject.SystemKey);
+            paramCmd = securityData.HasSecurityAccess(paramCmd, "rocketdirectoryapi_login");
             return paramCmd;
         }
 

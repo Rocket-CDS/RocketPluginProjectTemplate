@@ -25,6 +25,10 @@ You have 2 options to rename the template.  "Auto Replace" or "Manually".
 ### Option 1 - Auto Replace
 Use https://github.com/Rocket-CDS/RenameProj
 
+Example...
+```
+RenameProj.exe D:\Nevoweb\Projects\DesktopModules\DNNrocketModules\RocketIntraSqlReports rocketintra
+```
 ### Option 2 - Manually
 Rename the project folder to be the new project plugin name.  
 Rename Project files.  
@@ -46,7 +50,7 @@ This project should now compile.
 
 ## Database Changes
 
-The project template uses an example a class limpet call "pArticleLimpet" and "pArticleListLimpet".  These are the data source access points.  By default they use the DNNrocket table, but this may need to be changed depending of what table the Rocket System is using.  
+The project template uses an example a class limpet call "ArticleLimpet" and "ArticleListLimpet".  These are the data source access points.  By default they use the DNNrocket table, but this may need to be changed depending of what table the Rocket System is using.  
 
 The database table column "TYPECODE" should usually be unique for the plugin, the template therefore appends the plugin name to the default TYPECODE name.
 

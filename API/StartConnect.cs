@@ -5,10 +5,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using RocketPluginProjectTemplate.Components;
+using DNNrocketAPI.Interfaces;
 
 namespace RocketPluginProjectTemplate.API
 {
-    public partial class StartConnect : DNNrocketAPI.APInterface
+    public partial class StartConnect : IProcessCommand
     {
         private SimplisityInfo _postInfo;
         private SimplisityInfo _paramInfo;
@@ -16,7 +17,7 @@ namespace RocketPluginProjectTemplate.API
         private SessionParams _sessionParams;
         private DataObjectLimpet _dataObject;
 
-        public override Dictionary<string, object> ProcessCommand(string paramCmd, SimplisityInfo systemInfo, SimplisityInfo interfaceInfo, SimplisityInfo postInfo, SimplisityInfo paramInfo, string langRequired = "")
+        public Dictionary<string, object> ProcessCommand(string paramCmd, SimplisityInfo systemInfo, SimplisityInfo interfaceInfo, SimplisityInfo postInfo, SimplisityInfo paramInfo, string langRequired = "")
         {
             var strOut = ""; // return nothing if not matching commands.
             var storeParamCmd = paramCmd;
@@ -72,7 +73,6 @@ namespace RocketPluginProjectTemplate.API
             _sessionParams = new SessionParams(_paramInfo);
 
             // Assign Langauge
-            DNNrocketUtils.SetCurrentCulture();
             if (_sessionParams.CultureCode == "") _sessionParams.CultureCode = DNNrocketUtils.GetCurrentCulture();
             if (_sessionParams.CultureCodeEdit == "") _sessionParams.CultureCodeEdit = DNNrocketUtils.GetEditCulture();
             DNNrocketUtils.SetCurrentCulture(_sessionParams.CultureCode);

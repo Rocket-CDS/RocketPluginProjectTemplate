@@ -82,7 +82,7 @@ namespace RocketPluginProjectTemplate.API
             _dataObject = new DataObjectLimpet(portalid, _sessionParams.ModuleRef, _sessionParams, systemkey);
 
             var securityData = new SecurityLimpet(portalid, systemkey, _rocketInterface, -1, -1, _dataObject.SystemKey);
-            paramCmd = securityData.HasSecurityAccess(paramCmd, "rocketdirectoryapi_login");
+            paramCmd = securityData.HasSecurityAccess(paramCmd, "rocketsystem_login");
             return paramCmd;
         }
 

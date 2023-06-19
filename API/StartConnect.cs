@@ -55,7 +55,7 @@ namespace RocketPluginProjectTemplate.API
         private string ReloadPage()
         {
             UserUtils.SignOut();
-            var razorTempl = _dataObject.AppThemePortal.GetTemplate("Reload.cshtml");
+            var razorTempl = _dataObject.AppThemeSystem.GetTemplate("Reload.cshtml");
             var pr = RenderRazorUtils.RazorProcessData(razorTempl, _dataObject.PortalData, _dataObject.DataObjects, _dataObject.Settings, _sessionParams, true);
             if (pr.StatusCode != "00") return pr.ErrorMsg;
             return pr.RenderedText;

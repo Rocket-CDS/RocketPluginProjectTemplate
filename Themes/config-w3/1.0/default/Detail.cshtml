@@ -17,7 +17,11 @@
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocket/API/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate/App_LocalResources/")
 
-@RenderLanguageSelector("rocketpluginprojecttemplate_detail", "{\"articleid\":\"" + articleData.ArticleId + "\"}", appThemeSystem, Model)
+@{
+    var sFieldDict = new Dictionary<string, string>();
+    sFieldDict.Add("itemid", articleData.ArticleId.ToString());
+}
+@RenderLanguageSelector("rocketpluginprojecttemplate_detail", sFieldDict, appThemeSystem, Model)
 
 <div class="w3-animate-opacity w3-padding">
 

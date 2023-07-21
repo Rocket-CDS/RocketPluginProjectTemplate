@@ -29,7 +29,7 @@ namespace RocketPluginProjectTemplate.Components
             _systemKey = systemKey;
             _passSettings = new Dictionary<string, string>();
             _dataObjects = new Dictionary<string, object>();
-            var systemData = new SystemLimpet(systemKey);
+            var systemData = SystemSingleton.Instance(_systemKey);
 
             SetDataObject("systemdata", systemData);
             SetDataObject("appthemesystem", AppThemeUtils.AppThemeSystem(portalid, SystemKey));

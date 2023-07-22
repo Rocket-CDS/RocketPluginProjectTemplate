@@ -13,6 +13,8 @@
     var dataList = (ArticleLimpetList)Model.GetDataObject("datalist");
     var systemData = (SystemLimpet)Model.GetDataObject("systemdata");
     var appThemeSystem = (AppThemeSystemLimpet)Model.GetDataObject("appthemesystem");
+    var sFieldDict = new Dictionary<string, string>();
+    //var appThemeDirectory = (AppThemeSystemLimpet)Model.GetDataObject("appthemedirectory");
 }
 
 
@@ -20,9 +22,11 @@
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate/App_LocalResources/")
 
 @{
-    var sFieldDict = new Dictionary<string, string>();
+    // The plugins for rocketdirectory system can inherit interfaces and plugins from rocketdirectoryapi
+    //@RenderLanguageSelector("rocketpluginprojecttemplate_list", sFieldDict, appThemeDirectory, Model)
 }
 @RenderLanguageSelector("rocketpluginprojecttemplate_list", sFieldDict, appThemeSystem, Model)
+
 
 <div class="w3-animate-opacity w3-padding">
 

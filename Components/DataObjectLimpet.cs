@@ -35,6 +35,7 @@ namespace RocketPluginProjectTemplate.Components
 
             SetDataObject("systemdata", systemData);
             SetDataObject("appthemesystem", AppThemeUtils.AppThemeSystem(portalid, SystemKey));
+            //SetDataObject("appthemedirectory", AppThemeUtils.AppThemeSystem(portalid, "rocketdirectoryapi"));
             SetDataObject("appthemeplugin", AppThemeUtils.AppThemeSystem(portalid, "rocketpluginprojecttemplate"));
             SetDataObject("portaldata", new PortalLimpet(portalid));
             SetDataObject("appthemeportal", new AppThemeDNNrocketLimpet("rocketportal"));            

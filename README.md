@@ -78,3 +78,6 @@ To load the interfaces from the "system.rules":
 
 Remove any provider config from the providerdata list in system.rules, for providers not being used.  
 NOTE: The provider XML with the plugin name should not be removed.  This identifies the pugin to the system, so it can be listed on the system plugin list.  
+
+## DataObjectLimpet.cs
+The DataObjectLimpet.cs class should match the required data objects.  Usually copying hte system DataObjectLimpet.cs Populate() method will be enough.  

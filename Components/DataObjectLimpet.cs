@@ -1,5 +1,6 @@
 ﻿using DNNrocketAPI.Components;
 using Rocket.AppThemes.Components;
+//[RocketDirectoryAPI]// using RocketDirectoryAPI.Components;
 using RocketPortal.Components;
 using Simplisity;
 using System;
@@ -30,16 +31,23 @@ namespace RocketPluginProjectTemplate.Components
             _passSettings = new Dictionary<string, string>();
             _dataObjects = new Dictionary<string, object>();
             var systemData = SystemSingleton.Instance(_systemKey);
-            //var systemData = SystemSingleton.Instance(_systemKey, "rocketdirectoryapi");
-
 
             SetDataObject("systemdata", systemData);
             SetDataObject("appthemesystem", AppThemeUtils.AppThemeSystem(portalid, SystemKey));
-            //SetDataObject("appthemedirectory", AppThemeUtils.AppThemeSystem(portalid, "rocketdirectoryapi"));
             SetDataObject("appthemeplugin", AppThemeUtils.AppThemeSystem(portalid, "rocketpluginprojecttemplate"));
             SetDataObject("portaldata", new PortalLimpet(portalid));
-            SetDataObject("appthemeportal", new AppThemeDNNrocketLimpet(portalid, "rocketportal"));            
+            SetDataObject("appthemeportal", new AppThemeDNNrocketLimpet(portalid, "rocketportal"));
+            SetDataObject("userparams", new UserParams("ModuleID:" + moduleId, true));
 
+            //[RocketDirectoryAPI]//
+            //  SetDataObject("userparams", new UserParams("ModuleID:" + moduleId, true));
+            //  SetDataObject("modulesettings", new ModuleContentLimpet(portalid, moduleRef, systemKey, moduleId, tabId));
+            //  var systemDirectoryData = SystemSingleton.Instance("rocketdirectoryapi");
+            //  SetDataObject("systemdirectorydata", systemDirectoryData);
+            //  SetDataObject("appthemedirectory", AppThemeUtils.AppThemeSystem(portalid, "rocketdirectoryapi"));
+            //  var portalContent = new PortalCatalogLimpet(portalid, cultureCode, systemKey);
+            //  SetDataObject("portalcontent", portalContent);
+            //[RocketDirectoryAPI]//  
         }
         public void SetDataObject(String key, object value)
         {

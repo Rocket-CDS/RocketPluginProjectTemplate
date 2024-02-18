@@ -79,9 +79,12 @@ namespace RocketPluginProjectTemplate.API
             DNNrocketUtils.SetEditCulture(_sessionParams.CultureCodeEdit);
 
             var systemkey = systemInfo.GetXmlProperty("genxml/systemkey");
+            var basesystemkey = systemInfo.GetXmlProperty("genxml/basesystemkey");
+            if (basesystemkey == "") basesystemkey = systemkey;
+
             _dataObject = new DataObjectLimpet(portalid, _sessionParams.ModuleRef, _sessionParams, systemkey);
 
-            var securityData = new SecurityLimpet(portalid, systemkey, _rocketInterface, -1, -1, _dataObject.SystemKey);
+            var securityData = new SecurityLimpet(portalid, basesystemkey, _rocketInterface, -1, -1, _dataObject.SystemKey);
             paramCmd = securityData.HasSecurityAccess(paramCmd, "rocketsystem_login");
             return paramCmd;
         }

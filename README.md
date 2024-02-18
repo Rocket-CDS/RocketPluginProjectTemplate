@@ -81,3 +81,7 @@ NOTE: The provider XML with the plugin name should not be removed.  This identif
 
 ## DataObjectLimpet.cs
 The DataObjectLimpet.cs class should match the required data objects.  Usually copying hte system DataObjectLimpet.cs Populate() method will be enough.  
+
+## [RocketDirectoryAPI]
+If the plugin is going to be used with RocketDirectory then some code has been commented out, then needs to be used.  
+Search the project for "[RocketDirectoryAPI]", this will identify the lines that need to be uncommented.  

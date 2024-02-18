@@ -38,6 +38,12 @@ namespace RocketPluginProjectTemplate.API
             var particleData = GetActiveArticle(_sessionParams.CultureCodeEdit);
             return GetpArticleDetail(particleData);
         }
+        public String DeleteArticle()
+        {
+            var particleData = GetActiveArticle(_sessionParams.CultureCodeEdit);
+            particleData.Delete();
+            return RenderList();
+        }
         public String AddpArticle()
         {
             return GetArticleDetail(-1, _sessionParams.CultureCodeEdit);

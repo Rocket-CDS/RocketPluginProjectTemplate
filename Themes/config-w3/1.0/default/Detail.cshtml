@@ -25,18 +25,10 @@
 
 <div class="w3-animate-opacity w3-padding">
 
-    <div class="w3-bar searchdata">
-        @HiddenField(new SimplisityInfo(), "genxml/hidden/page", " class='simplisity_sessionfield' s-update='ignore'", "1")
-        <div class="w3-bar-item">
-            <span class="w3-bar-item w3-button w3-theme-l4 simplisity_click" s-cmd="rocketpluginprojecttemplate_list" s-fields='{"track":"true"}' style="cursor:pointer;">
-                @ButtonText(ButtonTypes.back)
-            </span>
-        </div>
-        <div class="w3-bar-item">
-            <div class="w3-bar-item w3-button w3-theme-action simplisity_click" s-cmd="rocketpluginprojecttemplate_save" s-post='#sectiondata' s-fields='{"itemid":"@(articleData.ArticleId)"}'>
-                @ButtonText(ButtonTypes.save)
-            </div>
-        </div>
+    <div class="w3-row w3-padding">
+        <button class="w3-button w3-black simplisity_click" s-cmd="rocketpluginprojecttemplate_list" s-fields='{"track":"true"}'>@ButtonText(ButtonTypes.back)</button>
+        <button class="w3-button w3-theme-action simplisity_click" s-cmd="rocketpluginprojecttemplate_save" s-post="#sectiondata" s-fields='{"itemid":"@articleData.ArticleId"}'>@ButtonText(ButtonTypes.save)</button>
+        <button class="w3-button w3-right w3-red simplisity_confirmclick" s-confirm="@ResourceKey("DNNrocket.delete","","confirm")" s-cmd="rocketpluginprojecttemplate_delete" s-fields='{"itemid":"@articleData.ArticleId"}' title='@ResourceKey("DNNrocket.delete")'>@ButtonText(ButtonTypes.delete)</button>
     </div>
 
     <div id="sectiondata" class="w3-row w3-padding">

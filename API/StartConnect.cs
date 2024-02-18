@@ -38,7 +38,7 @@ namespace RocketPluginProjectTemplate.API
                     strOut = AddpArticle();
                     break;
                 case "rocketpluginprojecttemplate_delete":
-                    strOut = RenderList();
+                    strOut = DeleteArticle();
                     break;
                 case "rocketpluginprojecttemplate_save":
                     strOut = SavepArticle();

@@ -17,7 +17,7 @@ namespace RocketPluginProjectTemplate.Components
     public class ArticleLimpetList
     {
         private string _langRequired;
-        private List<ArticleLimpet> _particleList;
+        private List<ArticleLimpet> _articleList;
         private const string _tableName = "rocketsystemprojecttemplate";
         private const string _entityTypeCode = "RocketPluginProjectTemplateART";
         private DNNrocketController _objCtrl;
@@ -47,7 +47,7 @@ namespace RocketPluginProjectTemplate.Components
 
             SessionParamData = new SessionParams(paramInfo);
             if (SessionParamData.PageSize == 0) SessionParamData.PageSize = 32;
-            if (SessionParamData.OrderByRef == "") SessionParamData.OrderByRef = "sqlorderby-particle-name";
+            if (SessionParamData.OrderByRef == "") SessionParamData.OrderByRef = "sqlorderby-article-name";
 
             SessionParamData.SearchText = paramInfo.GetXmlProperty("genxml/hidden/searchtextrocketpluginprojecttemplate");
 
@@ -59,13 +59,13 @@ namespace RocketPluginProjectTemplate.Components
             if (SessionParamData.SearchText != "")
             {
                 _searchFilter = "      and ( ";
-                _searchFilter += "      isnull([XMLData].value('(genxml/lang/genxml/textbox/particlename)[1]','nvarchar(max)'),'') like '%" + SessionParamData.SearchText + "%' ";
-                _searchFilter += "      or isnull([XMLData].value('(genxml/textbox/particleref)[1]','nvarchar(max)'),'') like '%" + SessionParamData.SearchText + "%' ";
-                _searchFilter += "      or isnull([XMLData].value('(genxml/lang/genxml/textbox/particlekeywords)[1]','nvarchar(max)'),'') like '%" + SessionParamData.SearchText + "%' ";
+                _searchFilter += "      isnull([XMLData].value('(genxml/lang/genxml/textbox/articlename)[1]','nvarchar(max)'),'') like '%" + SessionParamData.SearchText + "%' ";
+                _searchFilter += "      or isnull([XMLData].value('(genxml/textbox/articleref)[1]','nvarchar(max)'),'') like '%" + SessionParamData.SearchText + "%' ";
+                _searchFilter += "      or isnull([XMLData].value('(genxml/lang/genxml/textbox/articlekeywords)[1]','nvarchar(max)'),'') like '%" + SessionParamData.SearchText + "%' ";
                 _searchFilter += "      ) ";
             }
 
-            var sqlOrderBy = " order by [XMLData].value('(genxml/lang/genxml/textbox/particlename)[1]','nvarchar(max)') ";
+            var sqlOrderBy = " order by [XMLData].value('(genxml/lang/genxml/textbox/articlename)[1]','nvarchar(max)') ";
 
             SessionParamData.RowCount = _objCtrl.GetListCount(PortalData.PortalId, -1, _entityTypeCode, _searchFilter, _langRequired, _tableName);
             RecordCount = SessionParamData.RowCount;
@@ -88,7 +88,7 @@ namespace RocketPluginProjectTemplate.Components
 
         public void DeleteAll()
         {
-            var l = GetAllpArticles();
+            var l = GetAllarticles();
             foreach (var r in l)
             {
                 _objCtrl.Delete(r.ItemID);
@@ -99,27 +99,27 @@ namespace RocketPluginProjectTemplate.Components
         public List<SimplisityInfo> DataList { get; private set; }
         public PortalLimpet PortalData { get; set; }
         public int RecordCount { get; set; }        
-        public List<ArticleLimpet> GetpArticleList()
+        public List<ArticleLimpet> GetarticleList()
         {
-            _particleList = new List<ArticleLimpet>();
+            _articleList = new List<ArticleLimpet>();
             foreach (var o in DataList)
             {
-                var particleData = new ArticleLimpet(PortalData.PortalId, o.ItemID, _langRequired);
-                _particleList.Add(particleData);
+                var articleData = new ArticleLimpet(PortalData.PortalId, o.ItemID, _langRequired);
+                _articleList.Add(articleData);
             }
-            return _particleList;
+            return _articleList;
         }
-        public List<SimplisityInfo> GetAllpArticles()
+        public List<SimplisityInfo> GetAllarticles()
         {
             return _objCtrl.GetList(PortalData.PortalId, -1, _entityTypeCode, "", _langRequired, "", 0, 0, 0, 0, _tableName);
         }
         public void Validate()
         {
-            var list = GetAllpArticles();
+            var list = GetAllarticles();
             foreach (var pInfo in list)
             {
-                var particleData = new ArticleLimpet(PortalData.PortalId, pInfo.ItemID, _langRequired);
-                particleData.ValidateAndUpdate();
+                var articleData = new ArticleLimpet(PortalData.PortalId, pInfo.ItemID, _langRequired);
+                articleData.ValidateAndUpdate();
             }
         }
     }

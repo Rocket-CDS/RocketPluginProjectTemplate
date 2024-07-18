@@ -35,13 +35,13 @@ namespace RocketPluginProjectTemplate.API
                     strOut = GetDetail();
                     break;
                 case "rocketpluginprojecttemplate_add":
-                    strOut = AddpArticle();
+                    strOut = Addarticle();
                     break;
                 case "rocketpluginprojecttemplate_delete":
                     strOut = DeleteArticle();
                     break;
                 case "rocketpluginprojecttemplate_save":
-                    strOut = SavepArticle();
+                    strOut = Savearticle();
                     break;
                 case "rocketsystem_login":
                     strOut = ReloadPage();

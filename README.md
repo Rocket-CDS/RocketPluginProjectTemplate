@@ -56,7 +56,7 @@ The database table column "TYPECODE" should usually be unique for the plugin, th
 
 The plugin template expects to be using the system database tables, no database tables or SPROCs have been defined.  Although each plugin can have their own set of tables and SPROCs if required.  
 
-NOTE: "pArticleLimpet" and "pArticleListLimpet" are examples and are expected to be replaced or altered to make the plugin work.
+NOTE: "articleLimpet" and "articleListLimpet" are examples and are expected to be replaced or altered to make the plugin work.
 
 ## Commands
 

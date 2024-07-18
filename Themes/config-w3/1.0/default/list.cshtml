@@ -69,12 +69,12 @@
                 </thead>
                 @foreach (SimplisityInfo dataInfo in dataList.DataList)
                 {
-                    var particleref = dataInfo.GetXmlProperty("genxml/textbox/particleref");
-                    var name = dataInfo.GetXmlProperty("genxml/lang/genxml/textbox/particlename");
+                    var articleref = dataInfo.GetXmlProperty("genxml/textbox/articleref");
+                    var name = dataInfo.GetXmlProperty("genxml/lang/genxml/textbox/articlename");
                     var test1 = dataInfo.GetXmlProperty("genxml/textbox/test1");
 
                     <tr class="simplisity_click" s-cmd="rocketpluginprojecttemplate_detail" s-fields='{"itemid":"@dataInfo.ItemID","track":"true"}' style="cursor:pointer;">
-                        <td>@particleref</td>
+                        <td>@articleref</td>
                         <td>@name</td>
                         <td>
                             @test1

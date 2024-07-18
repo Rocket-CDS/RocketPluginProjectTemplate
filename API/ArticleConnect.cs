@@ -11,48 +11,48 @@ namespace RocketPluginProjectTemplate.API
 {
     public partial class StartConnect
     {
-        private ArticleLimpet GetActivepArticle(int particleId, string cultureCode)
+        private ArticleLimpet GetActivearticle(int articleId, string cultureCode)
         {
-            return new ArticleLimpet(_dataObject.PortalData.PortalId, particleId, cultureCode);
+            return new ArticleLimpet(_dataObject.PortalData.PortalId, articleId, cultureCode);
         }
         private ArticleLimpet GetActiveArticle(string cultureCode)
         {
-            var particleId = _paramInfo.GetXmlPropertyInt("genxml/hidden/itemid");
-            return new ArticleLimpet(_dataObject.PortalData.PortalId, particleId, cultureCode);
+            var articleId = _paramInfo.GetXmlPropertyInt("genxml/hidden/itemid");
+            return new ArticleLimpet(_dataObject.PortalData.PortalId, articleId, cultureCode);
         }
 
-        public String GetArticleDetail(int particleId, string cultureCode)
+        public String GetArticleDetail(int articleId, string cultureCode)
         {
-            var particleData = GetActivepArticle(particleId, cultureCode);
-            return GetpArticleDetail(particleData);
+            var articleData = GetActivearticle(articleId, cultureCode);
+            return GetarticleDetail(articleData);
         }
-        public String GetpArticleDetail(ArticleLimpet particleData)
+        public String GetarticleDetail(ArticleLimpet articleData)
         {
             var razorTempl = _dataObject.AppThemePlugin.GetTemplate("detail.cshtml");
-            var pr = RenderRazorUtils.RazorProcessData(razorTempl, particleData, _dataObject.DataObjects, _dataObject.Settings, _sessionParams, true);
+            var pr = RenderRazorUtils.RazorProcessData(razorTempl, articleData, _dataObject.DataObjects, _dataObject.Settings, _sessionParams, true);
             if (pr.StatusCode != "00") return pr.ErrorMsg;
             return pr.RenderedText;
         }
         public String GetDetail()
         {
-            var particleData = GetActiveArticle(_sessionParams.CultureCodeEdit);
-            return GetpArticleDetail(particleData);
+            var articleData = GetActiveArticle(_sessionParams.CultureCodeEdit);
+            return GetarticleDetail(articleData);
         }
         public String DeleteArticle()
         {
-            var particleData = GetActiveArticle(_sessionParams.CultureCodeEdit);
-            particleData.Delete();
+            var articleData = GetActiveArticle(_sessionParams.CultureCodeEdit);
+            articleData.Delete();
             return RenderList();
         }
-        public String AddpArticle()
+        public String Addarticle()
         {
             return GetArticleDetail(-1, _sessionParams.CultureCodeEdit);
         }
-        public String SavepArticle()
+        public String Savearticle()
         {
-            var particleData = GetActiveArticle(_sessionParams.CultureCodeEdit);
-            particleData.Save(_postInfo);
-            return GetpArticleDetail(particleData);
+            var articleData = GetActiveArticle(_sessionParams.CultureCodeEdit);
+            articleData.Save(_postInfo);
+            return GetarticleDetail(articleData);
         }
         private string RenderList()
         {

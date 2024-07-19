@@ -48,6 +48,10 @@ Ensure all projects in the solution are loaded. The project uses project referen
 
 This project should now compile.
 
+## IMPORTANT: DataObjectLimpet.cs
+**Edit "DataObjectLimpet.cs" class.**  
+The DataObjectLimpet.cs class should match the required data objects.  Usually copying the system DataObjectLimpet.cs Populate() method will be enough.  
+
 ## Database Changes
 
 The project template uses an example a class limpet call "ArticleLimpet" and "ArticleListLimpet".  These are the data source access points.  By default they use the DNNrocket table, but this may need to be changed depending of what table the Rocket System is using.  
@@ -78,9 +82,6 @@ To load the interfaces from the "system.rules":
 
 Remove any provider config from the providerdata list in system.rules, for providers not being used.  
 NOTE: The provider XML with the plugin name should not be removed.  This identifies the pugin to the system, so it can be listed on the system plugin list.  
-
-## DataObjectLimpet.cs
-The DataObjectLimpet.cs class should match the required data objects.  Usually copying hte system DataObjectLimpet.cs Populate() method will be enough.  
 
 ## [RocketDirectoryAPI]
 If the plugin is going to be used with RocketDirectory then some code has been commented out, then needs to be used.  

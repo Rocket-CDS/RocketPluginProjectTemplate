@@ -14,22 +14,21 @@
     var systemData = (SystemLimpet)Model.GetDataObject("systemdata");
     var appThemeSystem = (AppThemeSystemLimpet)Model.GetDataObject("appthemesystem");
     var sFieldDict = new Dictionary<string, string>();
-    //[RocketDirectoryAPI]// var appThemeDirectory = (AppThemeSystemLimpet)Model.GetDataObject("appthemedirectory");
+    //[RocketDirectoryAPI]// var appThemeDirectory = (AppThemeSystemLimpet)Model.GetDataObject("appthemedirectory");   
 }
-
 
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocket/API/App_LocalResources/")
 @AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketPluginProjectTemplate/App_LocalResources/")
 
-@{
-    // The plugins for rocketdirectory system can inherit interfaces and plugins from rocketdirectoryapi
-    // ** Releases the RenderTemplate code below.
-    //[RocketDirectoryAPI]//@RenderLanguageSelector("rocketpluginprojecttemplate_list", sFieldDict, appThemeDirectory, Model)
-}
-@RenderLanguageSelector("rocketpluginprojecttemplate_list", sFieldDict, appThemeSystem, Model)
+<div class="pl-breadcrumb">
+    <div class="pl-breadcrumb-itemlink w3-border-blue w3-border-bottom w3-text-blue " onclick="window.location.reload();">Services</div>
+    <div class="pl-breadcrumb-item">
+        <img src="/DesktopModules/DNNrocket/API/images/chevron_right.svg" />
+    </div>
+    <div class="pl-breadcrumb-itemlink w3-border-blue w3-border-bottom w3-text-blue simplisity_click" s-cmd="rocketpluginprojecttemplate_list" s-fields='{"systemkey":"@(systemData.BaseSystemKey)"}'>AppServices</div>
+</div>
 
-
-<div class="w3-animate-opacity w3-padding">
+<div class="w3-animate-opacity w3-card w3-padding w3-white ">
 
     <div class="w3-bar searchdata">
         @HiddenField(new SimplisityInfo(), "genxml/hidden/page", " class='simplisity_sessionfield' s-update='ignore'", "1")

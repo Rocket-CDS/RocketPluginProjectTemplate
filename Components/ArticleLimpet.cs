@@ -127,7 +127,7 @@ namespace RocketPluginProjectTemplate.Components
         public string LinkListName { get { return "linklist"; } }
         public string DocumentListName { get { return "documentlist"; } }
         public string ImageListName { get { return "imagelist"; } }
-        public string Name { get { return _info.GetXmlProperty("genxml/data/name"); } set { _info.SetXmlProperty("genxml/data/name", value); } }
+        public string Name { get { return _info.GetXmlProperty("genxml/lang/genxml/textbox/articlename"); } set { _info.SetXmlProperty("genxml/lang/genxml/textbox/articlename", value); } }
         public string AdminAppThemeFolder { get { return _info.GetXmlProperty("genxml/textbox/apptheme"); } set { _info.SetXmlProperty("genxml/textbox/apptheme", value); } }
         public string AdminAppThemeFolderVersion { get { return _info.GetXmlProperty("genxml/textbox/appthemeversion"); } set { _info.SetXmlProperty("genxml/textbox/appthemeversion", value); } }
         public string Organisation { get { return _info.GetXmlProperty("genxml/select/org"); } set { _info.SetXmlProperty("genxml/select/org", value); } }

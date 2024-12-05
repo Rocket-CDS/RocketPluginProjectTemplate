@@ -41,6 +41,7 @@
 		<genxml>
 			<textbox>
 				<interfacekey>scheduler-rocketpluginprojecttemplate</interfacekey>
+				<onsystemkey></onsystemkey>
 				<namespaceclass>RocketPluginProjectTemplate.Components.Scheduler</namespaceclass>
 				<assembly>RocketPluginProjectTemplate</assembly>
 				<interfaceicon></interfaceicon>
